@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentpackage name="Ak-47" path="Mods/Ak-47/filelist.xml" corepackage="false" gameversion="0.15.13.0" steamworkshopid="2671274456" installtime="1638481601">
+  <Item file="Mods/Ak-47/Ak-47/ak-47.xml" />
+  <None file="Mods/Ak-47/Ak-47/ak-47.png" />
+  <None file="Mods/Ak-47/Ak-47/ak-47_icon.png" />
+</contentpackage>
