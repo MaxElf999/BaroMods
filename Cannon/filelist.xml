@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentpackage name="Cannon" path="Mods/Cannon/filelist.xml" corepackage="false" gameversion="0.15.23.0" steamworkshopid="2671275371" installtime="1642478257">
+  <Item file="Mods/Cannon/Cannon/cannon.xml" />
+  <None file="Mods/Cannon/Cannon/cannon.png" />
+  <None file="Mods/Cannon/Cannon/cannon_icon.png" />
+  <None file="Mods/Cannon/Cannon/cannon.ogg" />
+</contentpackage>

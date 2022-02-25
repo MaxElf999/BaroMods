@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentpackage name="Laser rifle" path="Mods/Laser_rifle/filelist.xml" corepackage="false" gameversion="0.15.13.0">
+	<Item file="Mods/Laser_rifle/Laser_rifle/Laser_rifle.xml" />
+	<None file="Mods/Laser_rifle/Laser_rifle/Laser_rifle.png" />
+	<None file="Mods/Laser_rifle/Laser_rifle/Laser_rifle_icon.png" />
+</contentpackage>

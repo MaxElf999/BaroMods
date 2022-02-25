@@ -1,0 +1,598 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+	<!--Plasma Pistol-->
+	<Item name="Plasma Pistol" identifier="plasmapistol" description="Type-54 Directed Energy Pistol" category="Equipment" cargocontaineridentifier="metalcrate" tags="smallitem,weapon,gun,pistolitem,gunsmith,loadable" Scale="0.5" impactsoundtag="impact_metal_light">
+		<PreferredContainer primary="weaponholder" />
+		<PreferredContainer primary="secarmcab" />
+		<Price baseprice="150" soldeverywhere="false">
+			<Price locationtype="outpost" multiplier="1.5" sold="false"/>
+			<Price locationtype="city" multiplier="1.25" sold="false" />
+			<Price locationtype="research" multiplier="1.25" sold="false"/>
+			<Price locationtype="military" multiplier="0.9" sold="false" />
+			<Price locationtype="mine" multiplier="1.25" sold="false"/>
+		</Price>
+		<Deconstruct time="10">
+			<Item identifier="steel" />
+			<Item identifier="plastic" />
+		</Deconstruct>
+		<InventoryIcon texture="Mods/Halo_Weapons/Covenant/Plasma_Pistol.png" sourcerect="0,0,64,52" origin="0.5,0.5" />
+		<Sprite texture="Mods/Halo_Weapons/Covenant/Plasma_Pistol.png" sourcerect="0,0,64,52" depth="0.55" origin="0.5,0.5" />
+		<Body width="64" height="52" density="50" />
+		<Holdable slots="Any,RightHand,LeftHand" controlpose="true" aimpos="70,5" handle1="-25,-7" msg="ItemMsgPickUpSelect" >
+			<StatusEffect type="OnActive" target="Contained" Condition="4.0" disabledeltatime="true" >
+				<Conditional Condition="gt 0.5"/>
+			</StatusEffect>
+		</Holdable>
+		<RangedWeapon reload="0.5" barrelpos="29,11" spread="0" unskilledspread="2" combatPriority="70" drawhudwhenequipped="true" crosshairscale="0.2">
+			<Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
+			<CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
+			<Sound file="Content/Items/Weapons/Revolver1.ogg" type="OnUse" range="3000" selectionmode="Random" />
+			<Sound file="Content/Items/Weapons/Revolver2.ogg" type="OnUse" range="3000" />
+			<Sound file="Content/Items/Weapons/Revolver3.ogg" type="OnUse" range="3000" />
+			<ParticleEmitter particle="plasmamuzzleflash" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="0,255,0,255"/>
+			<StatusEffect type="OnUse">
+				<Explosion range="150.0" force="1.5" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" camerashake="6.0" />
+			</StatusEffect>
+			<StatusEffect type="OnUse" target="This" condition="-1" disabledeltatime="true" />
+			<StatusEffect type="OnUse" target="Contained">
+				<Use />
+			</StatusEffect>
+			<RequiredItems items="plasmapistolbattery" type="Contained" msg="ItemMsgAmmoRequired" />
+			<RequiredSkill identifier="weapons" level="40" />
+		</RangedWeapon>
+		<ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="false" SpawnWithId="plasmapistolbattery" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="battery">
+			<Containable items="plasmapistolbattery" />
+		</ItemContainer>
+		<aitarget sightrange="2000" soundrange="5000" fadeouttime="5" />
+		<Quality>
+			<QualityStat stattype="StrikingPowerMultiplier" value="0.1"/>
+		</Quality>
+		<Upgrade gameversion="0.10.0.0" scale="0.5" />
+	</Item>
+	<Item name="Plasma Pistol Battery" identifier="plasmapistolbattery" category="Equipment" hideinmenus="true" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="smallitem" Scale="0.5" impactsoundtag="impact_metal_light">
+		<InventoryIcon texture="Mods/Halo_Weapons/Human/M41.png" sourcerect="294,0,66,15" origin="0.5,0.5" />
+		<Sprite texture="Mods/Halo_Weapons/Human/M41.png" sourcerect="294,0,66,15" depth="0.55" origin="0.5,0.5" />
+		<Body width="66" height="15" density="20" />
+		<Pickable slots="Any" msg="ItemMsgPickUpSelect"/>
+		<InventoryIcon texture="Mods/Halo_Weapons/Human/MA40.png" sourcerect="233,21,33,46" origin="0.5,0.5" />
+		<Sprite texture="Mods/Halo_Weapons/Human/MA40.png" sourcerect="233,21,33,46" depth="0.55" origin="0.5,0.5" />
+		<Body width="28" height="45" density="50" />
+		<ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" SpawnWithId="plasmapistolbolt" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+			<Containable items="plasmapistolbolt" />
+			<StatusEffect type="OnUse" target="This" condition="-8" disabledeltatime="true">
+				<SpawnItem identifiers="plasmapistolbolt" spawnposition="ThisInventory" />
+			</StatusEffect>
+		</ItemContainer>
+		
+	</Item>
+	<Item name="Plasma Pistol Bolt" identifier="plasmapistolbolt" category="Equipment" hideinmenus="true" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="smallitem" Scale="0.5" impactsoundtag="impact_metal_light">
+		<InventoryIcon texture="Mods/Halo_Weapons/Human/M41.png" sourcerect="294,0,66,15" origin="0.5,0.5" />
+		<Sprite texture="Mods/Halo_Weapons/Covenant/Plasma_Pistol.png" sourcerect="64,1,45,36" depth="0.55" origin="0.5,0.5" />
+		<Body radius="10" height="10" density="10" />
+		<LightComponent lightcolor="0.0,1.0,0.0,0.5" range="20.0" flicker="0.05" powerconsumption="0" IsOn="true">
+			<LightTexture texture="Content/Lights/pointlight_bounce.png" origin="0.5,0.5" depth="0.56" />
+			<!--<Sprite texture="Content/Particles/ParticleAtlas.png" sourcerect="320,448,64,64" depth="0.56" scale="5" origin="0.5,0.5" alpha="1" />-->
+		</LightComponent>
+		<Projectile characterusable="false" launchimpulse="10.0" sticktocharacters="false" RemoveOnHit="true" LaunchRotation="0.0">
+			<Attack structuredamage="1">
+				<Affliction identifier="blunttrauma" strength="5" />
+				<Affliction identifier="stun" strength="0.2" />
+			</Attack>
+			<StatusEffect type="OnActive" target="This">
+				<!--<ParticleEmitter position="-19,0" particle="rockettrail" anglemin="0" anglemax="0" particleamount="2" velocitymin="0" velocitymax="0" scalemin="0.9" scalemax="1.1" copyentityangle="true"/>
+				<ParticleEmitter position="-19,0" particle="DarkSmoke" anglemin="0" anglemax="0" particleamount="2" velocitymin="0" velocitymax="0" scalemin="1" scalemax="1" copyentityangle="true"/>
+				-->
+			</StatusEffect>
+			<sound file="Content/Items/Weapons/FragGrenade40mmShot1.ogg" type="OnImpact" range="500" selectionmode="Random" />
+			<sound file="Content/Items/Weapons/FragGrenade40mmShot2.ogg" type="OnImpact" range="500" />
+			<StatusEffect type="OnImpact" disabledeltatime="true">
+				<sound file="Content/Items/Weapons/StunGrenade.ogg" />
+			</StatusEffect>
+		</Projectile>
+	</Item>
+
+	<!--▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬-->
+	
+	<Item name="Plasma Grenade" identifier="plasmagrenade" category="Equipment" description="A Covenant antipersonnel grenade that sticks to targets" maxstacksize="8" cargocontaineridentifier="explosivecrate" tags="smallitem,weapon,explosive,demolitionsexpert" scale="0.5" impactsoundtag="impact_metal_light">
+		<PreferredContainer primary="secarmcab" />
+		<Price baseprice="150" soldeverywhere="false">
+			<Price locationtype="outpost" multiplier="1.35" sold="false"/>
+			<Price locationtype="city" multiplier="1.25" sold="false" />
+			<Price locationtype="research" multiplier="1.25" sold="false"/>
+			<Price locationtype="military" multiplier="0.9" sold="false" />
+			<Price locationtype="mine" multiplier="1.25" sold="false"/>
+		</Price>
+		<Deconstruct time="10">
+			<Item identifier="plastic" />
+			<Item identifier="liquidoxygenite" />
+		</Deconstruct>
+		<Fabricate suitablefabricators="fabricator" requiredtime="20">
+			<RequiredSkill identifier="weapons" level="70" />
+			<RequiredItem identifier="plastic" />
+			<RequiredItem identifier="liquidoxygenite" />
+		</Fabricate>
+		<InventoryIcon texture="Mods/Halo_Weapons/Covenant/Grenades.png" sourcerect="0,134,64,64" origin="0.5,0.5" />
+		<Sprite texture="Mods/Halo_Weapons/Covenant/Grenades.png" sourcerect="0,0,34,36" depth="0.55" origin="0.5,0.5" />
+		<Body radius="15" height="10" density="30" />
+		<Holdable slots="Any,RightHand,LeftHand" controlpose="true" holdpos="0,0" aimpos="10,40" handle1="0,0" msg="ItemMsgPickUpSelect" >
+		</Holdable>
+		<RangedWeapon barrelpos="0,-15" spread="0" unskilledspread="0" combatPriority="60" drawhudwhenequipped="false" crosshairscale="0.0">
+			<StatusEffect type="OnUse" target="This" disabledeltatime="true" >
+				<Remove />
+			</StatusEffect>
+		</RangedWeapon>
+		<ItemContainer hideitems="true" capacity="1" drawinventory="false" ShowContainedStateIndicator="false" canbeselected="false" SpawnWithId="plasmathrowable" removecontaineditemsondeconstruct="true" >
+			<Containable items="plasmathrowable" />
+		</ItemContainer>
+		<Quality>
+			<QualityStat stattype="AttackMultiplier" value="0.1" />
+		</Quality>
+	</Item>
+	<Item name="Plasma Throwable" identifier="plasmathrowable" category="Equipment" interactthroughwalls="true" cargocontaineridentifier="explosivecrate" tags="smallitem" scale="0.5" hideinmenus="true" impactsoundtag="impact_metal_light">
+		<InventoryIcon texture="Mods/Halo_Weapons/Covenant/Grenades.png" sourcerect="0,134,64,64" origin="0.5,0.5" />
+		<Sprite texture="Mods/Halo_Weapons/Covenant/Grenades.png" sourcerect="0,0,34,36" depth="0.55" origin="0.5,0.5" />
+		<Body radius="15" height="10" density="30" />
+		<LightComponent lightcolor="0.0,1.0,1.0,1.0" range="20.0" flicker="0.05" powerconsumption="0" IsOn="true">
+			<LightTexture texture="Content/Lights/pointlight_bounce.png" origin="0.5,0.5" depth="0.548" />
+			<Sprite texture="Content/Particles/ParticleAtlas2.png" sourcerect="180,470,42,42" depth="0.549" origin="0.5,0.5" alpha="0.1" />
+		</LightComponent>
+		<Projectile launchimpulse="15.0" sticktocharacters="true" sticktoitems="true" sticktostructures="true" stickpermanently="true">
+			<StatusEffect type="OnActive" target="This">
+				<ParticleEmitter particle="plasmatrail" anglemin="0" anglemax="0" particleamount="5" velocitymin="0" velocitymax="0" scalemultiplier="1.5,0.4" copyentityangle="true" />
+				<Conditional condition="gt 0.01" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="3.0" Condition="-100.0" disabledeltatime="true" />
+			<StatusEffect type="OnBroken" target="This">
+				<sound file="Content/Items/Weapons/ExplosionMedium1.ogg" type="OnUse" range="10000" selectionmode="All" />
+				<sound file="Content/Items/Weapons/ExplosionDebris1.ogg" type="OnUse" range="10000" />
+				<Explosion range="400.0" structuredamage="10" ballastfloradamage="120" itemdamage="500" force="10" severlimbsprobability="0.5" decal="explosion" decalsize="0.5" shockwave="false" underwaterbubble="false" smoke="false" flames="false" sparks="false">
+					<Affliction identifier="burn" strength="100" />
+					<Affliction identifier="explosiondamage" strength="160" />
+					<Affliction identifier="stun" strength="5"/>
+				</Explosion>
+				<ParticleEmitter particle="plasmaexplosion" anglemin="0" anglemax="0" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="2.5,2.5" colormultiplier="0,255,255,255" copyentityangle="false"/>
+				<ParticleEmitter particle="shockwave" anglemin="0" anglemax="0" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="2.5,2.5" colormultiplier="0,255,255,255" copyentityangle="true"/>
+				<Remove />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="0.1" disabledeltatime="true" >
+				<ParticleEmitter particle="plasmacharge" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="0.5,0.5" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="0.2" disabledeltatime="true" >
+				<ParticleEmitter particle="plasmacharge" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="0.6,0.6" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="0.3" disabledeltatime="true" >
+				<ParticleEmitter particle="plasmacharge" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="0.7,0.7s" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="0.4" disabledeltatime="true" >
+				<ParticleEmitter particle="plasmacharge" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="0.8,0.8" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="0.5" disabledeltatime="true" >
+				<ParticleEmitter particle="plasmacharge" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="0.9,0.9" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="0.6" disabledeltatime="true" >
+				<ParticleEmitter particle="plasmacharge" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="1.0,1.0" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="0.7" disabledeltatime="true" >
+				<ParticleEmitter particle="plasmacharge" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="1.1,1.1" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="0.8" disabledeltatime="true" >
+				<ParticleEmitter particle="plasmacharge" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="1.2,1.2" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="0.9" disabledeltatime="true" >
+				<ParticleEmitter particle="plasmacharge" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="1.3,1.3" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="1.0" disabledeltatime="true" >
+				<ParticleEmitter particle="plasmacharge" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="1.4,1.4" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="1.1" disabledeltatime="true" >
+				<ParticleEmitter particle="plasmacharge" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="1.5,1.5" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="1.2" disabledeltatime="true" >
+				<ParticleEmitter particle="plasmacharge" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="1.6,1.6" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="1.3" disabledeltatime="true" >
+				<ParticleEmitter particle="plasmacharge" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="1.7,1.7" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="1.4" disabledeltatime="true" >
+				<ParticleEmitter particle="plasmacharge" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="1.8,1.8" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="1.5" disabledeltatime="true" >
+				<ParticleEmitter particle="plasmacharge" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="1.9,1.9" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="1.6" disabledeltatime="true" >
+				<ParticleEmitter particle="plasmacharge" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="2.0,2.0" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="1.7" disabledeltatime="true" >
+				<ParticleEmitter particle="plasmacharge" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="2.1,2.1" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="1.8" disabledeltatime="true" >
+				<ParticleEmitter particle="plasmacharge" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="2.2,2.2" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="1.9" disabledeltatime="true" >
+				<ParticleEmitter particle="plasmacharge" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="2.3,2.3" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="2.0" disabledeltatime="true" >
+				<ParticleEmitter particle="plasmacharge" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="2.4,2.4" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="2.05" disabledeltatime="true" >
+				<ParticleEmitter particle="plasmacharge" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="2.5,2.5" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="2.1" disabledeltatime="true" >
+				<ParticleEmitter particle="plasmacharge" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="2.6,2.6" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="2.15" disabledeltatime="true" >
+				<ParticleEmitter particle="plasmacharge" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="2.7,2.7" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="2.2" disabledeltatime="true" >
+				<ParticleEmitter particle="plasmacharge" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="2.8,2.8" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="2.25" disabledeltatime="true" >
+				<ParticleEmitter particle="plasmacharge" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="2.9,2.9" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="2.3" disabledeltatime="true" >
+				<ParticleEmitter particle="plasmacharge" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="3.0,3.0" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="2.35" disabledeltatime="true" >
+				<ParticleEmitter particle="plasmacharge" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="3.1,3.1" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="2.4" disabledeltatime="true" >
+				<ParticleEmitter particle="plasmacharge" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="3.2,3.2" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="2.45" disabledeltatime="true" >
+				<ParticleEmitter particle="plasmacharge" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="3.3,3.3" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="2.5" disabledeltatime="true" >
+				<ParticleEmitter particle="plasmacharge" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="3.4,3.4" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="2.55" disabledeltatime="true" >
+				<ParticleEmitter particle="plasmacharge" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="3.5,3.5" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="2.6" disabledeltatime="true" >
+				<ParticleEmitter particle="plasmacharge" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="3.6,3.6" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="2.65" disabledeltatime="true" >
+				<ParticleEmitter particle="plasmacharge" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="3.7,3.7" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="2.7" disabledeltatime="true" >
+				<ParticleEmitter particle="plasmacharge" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="3.8,3.8" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="2.75" disabledeltatime="true" >
+				<ParticleEmitter particle="plasmacharge" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="3.9,3.9" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="2.8" disabledeltatime="true" >
+				<ParticleEmitter particle="plasmacharge" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="4.0,4.0" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="2.85" disabledeltatime="true" >
+				<ParticleEmitter particle="plasmacharge" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="4.1,4.1" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="2.9" disabledeltatime="true" >
+				<ParticleEmitter particle="plasmacharge" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="4.2,4.2" />
+			</StatusEffect>
+		</Projectile>
+	</Item>
+	<Item name="Spike Grenade" identifier="spikegrenade" category="Equipment" description="A Covenant antipersonnel grenade that sticks to targets" maxstacksize="8" cargocontaineridentifier="explosivecrate" tags="smallitem,weapon,explosive,demolitionsexpert" scale="0.5" impactsoundtag="impact_metal_light">
+		<PreferredContainer primary="secarmcab" />
+		<Price baseprice="150" soldeverywhere="false">
+			<Price locationtype="outpost" multiplier="1.35" sold="false"/>
+			<Price locationtype="city" multiplier="1.25" sold="false" />
+			<Price locationtype="research" multiplier="1.25" sold="false"/>
+			<Price locationtype="military" multiplier="0.9" sold="false" />
+			<Price locationtype="mine" multiplier="1.25" sold="false"/>
+		</Price>
+		<Deconstruct time="10">
+			<Item identifier="plastic" />
+			<Item identifier="liquidoxygenite" />
+		</Deconstruct>
+		<Fabricate suitablefabricators="fabricator" requiredtime="20">
+			<RequiredSkill identifier="weapons" level="70" />
+			<RequiredItem identifier="plastic" />
+			<RequiredItem identifier="liquidoxygenite" />
+		</Fabricate>
+		<InventoryIcon texture="Mods/Halo_Weapons/Covenant/Grenades.png" sourcerect="64,134,64,64" origin="0.5,0.5" />
+		<Sprite texture="Mods/Halo_Weapons/Covenant/Grenades.png" sourcerect="93,0,133,59" depth="0.55" origin="0.5,0.5" />
+		<Body width="120" height="18" density="30" />
+		<Holdable slots="Any,RightHand,LeftHand" controlpose="true" holdangle="-90" holdpos="0,0" aimpos="10,40" SwingSpeed="1" SwingAmount="20,-20" SwingWhenUsing="true" handle1="20,-5" msg="ItemMsgPickUpSelect" >
+		</Holdable>
+		<RangedWeapon barrelpos="0,-15" spread="0" unskilledspread="0" combatPriority="60" drawhudwhenequipped="false" crosshairscale="0.0">
+			<StatusEffect type="OnUse" target="This" disabledeltatime="true" >
+				<Remove />
+			</StatusEffect>
+		</RangedWeapon>
+		<ItemContainer hideitems="true" capacity="1" drawinventory="false" ShowContainedStateIndicator="false" canbeselected="false" SpawnWithId="spikethrowable" removecontaineditemsondeconstruct="true" >
+			<Containable items="spikethrowable" />
+		</ItemContainer>
+		<Quality>
+			<QualityStat stattype="AttackMultiplier" value="0.1" />
+		</Quality>
+	</Item>
+	<Item name="Spike Throwable" identifier="spikethrowable" category="Equipment" interactthroughwalls="true" cargocontaineridentifier="explosivecrate" tags="smallitem" scale="0.5" hideinmenus="true" impactsoundtag="impact_metal_light">
+		<InventoryIcon texture="Mods/Halo_Weapons/Covenant/Grenades.png" sourcerect="64,134,64,64" origin="0.5,0.5" />
+		<Sprite texture="Mods/Halo_Weapons/Covenant/Grenades.png" sourcerect="93,59,133,59" depth="0.55" origin="0.5,0.5" />
+		<DecorativeSprite name="Spike Grenade Trail" texture="Mods/Halo_Weapons/Covenant/Grenades.png" depth="0.551" sourcerect="0,66,72,45" origin="0.5,0.5" offset="30,0" />
+		<Body radius="15" height="10" density="30" />
+		<LightComponent lightcolor="1.0,1.0,0.0,1.0" range="20.0" depth="0.56" flicker="0.05" powerconsumption="0" IsOn="true">
+			<LightTexture texture="Content/Lights/pointlight_bounce.png" origin="0.5,0.5" depth="0.548" />
+		</LightComponent>
+		<Projectile launchimpulse="15.0" sticktocharacters="true" sticktoitems="true" sticktostructures="true" stickpermanently="true">
+			<Attack structuredamage="0.0" targetforce="5" itemdamage="10" severlimbsprobability="0.0">
+				<Affliction identifier="bleeding" strength="10" />
+				<Affliction identifier="lacerations" strength="10" />
+				<Affliction identifier="stun" strength="0.2" />
+			</Attack>
+			<StatusEffect type="OnActive" target="This">
+				<ParticleEmitter position="-30,0" particle="spiketrail" anglemin="0" anglemax="0" particleamount="5" velocitymin="0" velocitymax="0" scalemultiplier="1.5,0.4" copyentityangle="true" />
+				<!--<Conditional targetitemcomponent="Projectile" IsStuckToTarget="false" />-->
+				<Conditional Condition="eq 100" />
+			</StatusEffect>
+			<!--<StatusEffect type="OnActive" target="This">
+				<ParticleEmitter position="-30,0" particle="spiketrailtwo" anglemin="0" anglemax="0" particleamount="2" velocitymin="0" velocitymax="0" scalemin="0.5" scalemax="0.5" copyentityangle="true"/>
+				<Conditional targetitemcomponent="Projectile" IsStuckToTarget="false" />
+			</StatusEffect>-->
+			<StatusEffect type="OnImpact" target="This" delay="3.0" Condition="-100.0" disabledeltatime="true" />
+			<StatusEffect type="OnBroken" target="This">
+				<sound file="Content/Items/Weapons/ExplosionMedium1.ogg" type="OnUse" range="10000" selectionmode="All" />
+				<sound file="Content/Items/Weapons/ExplosionDebris1.ogg" type="OnUse" range="10000" />
+				<Explosion range="400.0" position="40,0" structuredamage="5" ballastfloradamage="60" itemdamage="200" force="10" severlimbsprobability="0.25" decal="explosion" decalsize="0.5" shockwave="true" underwaterbubble="true" smoke="true" flames="true" sparks="true">
+					<Affliction identifier="burn" strength="30" />
+					<Affliction identifier="explosiondamage" strength="60" />
+					<Affliction identifier="lacerations" strength="60" />
+					<Affliction identifier="stun" strength="3"/>
+				</Explosion>
+				<Explosion range="100.0" position="40,0" structuredamage="10" ballastfloradamage="120" itemdamage="500" force="10" severlimbsprobability="0.5" decal="explosion" decalsize="0.5" shockwave="false" underwaterbubble="false" smoke="false" flames="false" sparks="false">
+					<Affliction identifier="burn" strength="60" />
+					<Affliction identifier="explosiondamage" strength="120" />
+					<Affliction identifier="lacerations" strength="60" />
+					<Affliction identifier="stun" strength="3"/>
+				</Explosion>
+				<Remove />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" Condition="-50.0" disabledeltatime="true" />
+		</Projectile>
+	</Item>
+	<Item name="Dynamo Grenade" identifier="dynamogrenade" category="Equipment" description="A Banished shock grenade" maxstacksize="8" cargocontaineridentifier="explosivecrate" tags="smallitem,weapon,explosive,demolitionsexpert" scale="0.5" impactsoundtag="impact_metal_light">
+		<PreferredContainer primary="secarmcab" />
+		<Price baseprice="150" soldeverywhere="false">
+			<Price locationtype="outpost" multiplier="1.35" sold="false"/>
+			<Price locationtype="city" multiplier="1.25" sold="false" />
+			<Price locationtype="research" multiplier="1.25" sold="false"/>
+			<Price locationtype="military" multiplier="0.9" sold="false" />
+			<Price locationtype="mine" multiplier="1.25" sold="false"/>
+		</Price>
+		<Deconstruct time="10">
+			<Item identifier="plastic" />
+			<Item identifier="liquidoxygenite" />
+		</Deconstruct>
+		<Fabricate suitablefabricators="fabricator" requiredtime="20">
+			<RequiredSkill identifier="weapons" level="70" />
+			<RequiredItem identifier="plastic" />
+			<RequiredItem identifier="liquidoxygenite" />
+		</Fabricate>
+		<InventoryIcon texture="Mods/Halo_Weapons/Covenant/Grenades.png" sourcerect="128,134,64,64" origin="0.5,0.5" />
+		<Sprite texture="Mods/Halo_Weapons/Covenant/Grenades.png" sourcerect="34,30,56,30" depth="0.55" origin="0.5,0.5" />
+		<Body width="120" height="18" density="30" />
+		<Holdable slots="Any,RightHand,LeftHand" controlpose="true" holdangle="-90" holdpos="0,0" aimpos="10,40" SwingSpeed="1" SwingAmount="20,-20" SwingWhenUsing="true" handle1="25,-5" msg="ItemMsgPickUpSelect" >
+		</Holdable>
+		<RangedWeapon barrelpos="0,-15" spread="0" unskilledspread="0" combatPriority="60" drawhudwhenequipped="false" crosshairscale="0.0">
+			<StatusEffect type="OnUse" target="This" disabledeltatime="true" >
+				<Remove />
+			</StatusEffect>
+		</RangedWeapon>
+		<ItemContainer hideitems="true" capacity="1" drawinventory="false" ShowContainedStateIndicator="false" canbeselected="false" SpawnWithId="dynamothrowable" removecontaineditemsondeconstruct="true" >
+			<Containable items="dynamothrowable" />
+		</ItemContainer>
+		<Quality>
+			<QualityStat stattype="AttackMultiplier" value="0.1" />
+		</Quality>
+	</Item>
+	<Item name="Dynamo Throwable" identifier="dynamothrowable" category="Equipment" interactthroughwalls="true" cargocontaineridentifier="explosivecrate" tags="smallitem" scale="0.5" hideinmenus="true" impactsoundtag="impact_metal_light">
+		<InventoryIcon texture="Mods/Halo_Weapons/Covenant/Grenades.png" sourcerect="128,134,64,64" origin="0.5,0.5" />
+		<Sprite texture="Mods/Halo_Weapons/Covenant/Grenades.png" sourcerect="34,0,56,30" depth="0.55" origin="0.5,0.5" />
+		<DecorativeSprite texture="Content/Particles/ParticleAtlas2.png" sourcerect="180,470,42,42" depth="0.548" origin="0.5,0.5" offset="15,0" alpha="0.1" />
+		<Body radius="10" height="10" density="30" />
+		<LightComponent lightcolor="0.0,1.0,1.0,1.0" range="20.0" flicker="0.1" powerconsumption="0" IsOn="true">
+			<LightTexture texture="Content/Lights/pointlight_bounce.png" origin="0.25,0.5" depth="0.548" />
+		</LightComponent>
+		<Projectile launchimpulse="15.0" sticktocharacters="false" sticktoitems="false" sticktostructures="false" stickpermanently="false">
+			<StatusEffect type="OnImpact" target="This" delay="3.2" Condition="-100.0" disabledeltatime="true" />
+			<StatusEffect type="OnBroken" target="This">
+				<sound file="Content/Items/Weapons/ExplosionSmall1.ogg" type="OnUse" range="1000" />
+				<Explosion range="100.0" position="15,0" shockwave="true" underwaterbubble="true" smoke="true" flames="true" sparks="true" />
+				<Remove />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="0.4" disabledeltatime="true" >
+				<sound file="Content/Items/Weapons/WEAPONS_electricalDischarge1.ogg" range="1000" selectionmode="random"/>
+				<sound file="Content/Items/Weapons/WEAPONS_electricalDischarge2.ogg" range="1000" />
+				<ParticleEmitter position="15,0" particle="ElectricShock" anglemin="0" anglemax="359" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="1.0,1.0" copyentityangle="true" />
+				<Explosion range="400.0" force="0" shockwave="false" underwaterbubble="false" smoke="false" flames="false" sparks="false" empstrength="0.2">
+					<Affliction identifier="burn" strength="2.5" />
+					<Affliction identifier="stun" strength="0.5"/>
+				</Explosion>
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="0.5" disabledeltatime="true" >
+				<ParticleEmitter position="15,0" particle="ElectricShock" anglemin="0" anglemax="359" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="1.0,1.0" copyentityangle="true" />
+				<Explosion range="400.0" force="0" shockwave="false" underwaterbubble="false" smoke="false" flames="false" sparks="false" empstrength="0.2">
+					<Affliction identifier="burn" strength="2.5" />
+					<Affliction identifier="stun" strength="0.5"/>
+				</Explosion>
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="0.6" disabledeltatime="true" >
+				<Explosion range="400.0" force="0" shockwave="false" underwaterbubble="false" smoke="false" flames="false" sparks="false" empstrength="0.2">
+					<Affliction identifier="burn" strength="2.5" />
+					<Affliction identifier="stun" strength="0.5"/>
+				</Explosion>
+				<ParticleEmitter position="15,0" particle="ElectricShock" anglemin="0" anglemax="359" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="1.0,1.0" copyentityangle="true" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="0.7" disabledeltatime="true" >
+				<Explosion range="400.0" force="0" shockwave="false" underwaterbubble="false" smoke="false" flames="false" sparks="false" empstrength="0.2">
+					<Affliction identifier="burn" strength="2.5" />
+					<Affliction identifier="stun" strength="0.5"/>
+				</Explosion>
+				<ParticleEmitter position="15,0" particle="ElectricShock" anglemin="0" anglemax="359" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="1.0,1.0" copyentityangle="true" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="0.8" disabledeltatime="true" >
+				<Explosion range="400.0" force="0" shockwave="false" underwaterbubble="false" smoke="false" flames="false" sparks="false" empstrength="0.2">
+					<Affliction identifier="burn" strength="2.5" />
+					<Affliction identifier="stun" strength="0.5"/>
+				</Explosion>
+				<ParticleEmitter position="15,0" particle="ElectricShock" anglemin="0" anglemax="359" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="1.0,1.0" copyentityangle="true" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="0.9" disabledeltatime="true" >
+				<Explosion range="400.0" force="0" shockwave="false" underwaterbubble="false" smoke="false" flames="false" sparks="false" empstrength="0.2">
+					<Affliction identifier="burn" strength="2.5" />
+					<Affliction identifier="stun" strength="0.5"/>
+				</Explosion>
+				<ParticleEmitter position="15,0" particle="ElectricShock" anglemin="0" anglemax="359" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="1.0,1.0" copyentityangle="true" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="1.0" disabledeltatime="true" >
+				<Explosion range="400.0" force="0" shockwave="false" underwaterbubble="false" smoke="false" flames="false" sparks="false" empstrength="0.2">
+					<Affliction identifier="burn" strength="2.5" />
+					<Affliction identifier="stun" strength="0.5"/>
+				</Explosion>
+				<ParticleEmitter position="15,0" particle="ElectricShock" anglemin="0" anglemax="359" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="1.0,1.0" copyentityangle="true" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="1.1" disabledeltatime="true" >
+				<Explosion range="400.0" force="0" shockwave="false" underwaterbubble="false" smoke="false" flames="false" sparks="false" empstrength="0.2">
+					<Affliction identifier="burn" strength="2.5" />
+					<Affliction identifier="stun" strength="0.5"/>
+				</Explosion>
+				<ParticleEmitter position="15,0" particle="ElectricShock" anglemin="0" anglemax="359" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="1.0,1.0" copyentityangle="true" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="1.2" disabledeltatime="true" >
+				<Explosion range="400.0" force="0" shockwave="false" underwaterbubble="false" smoke="false" flames="false" sparks="false" empstrength="0.2">
+					<Affliction identifier="burn" strength="2.5" />
+					<Affliction identifier="stun" strength="0.5"/>
+				</Explosion>
+				<ParticleEmitter position="15,0" particle="ElectricShock" anglemin="0" anglemax="359" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="1.0,1.0" copyentityangle="true" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="1.3" disabledeltatime="true" >
+				<Explosion range="400.0" force="0" shockwave="false" underwaterbubble="false" smoke="false" flames="false" sparks="false" empstrength="0.2">
+					<Affliction identifier="burn" strength="2.5" />
+					<Affliction identifier="stun" strength="0.5"/>
+				</Explosion>
+				<ParticleEmitter position="15,0" particle="ElectricShock" anglemin="0" anglemax="359" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="1.0,1.0" copyentityangle="true" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="1.4" disabledeltatime="true" >
+				<Explosion range="400.0" force="0" shockwave="false" underwaterbubble="false" smoke="false" flames="false" sparks="false" empstrength="0.2">
+					<Affliction identifier="burn" strength="2.5" />
+					<Affliction identifier="stun" strength="0.5"/>
+				</Explosion>
+				<ParticleEmitter position="15,0" particle="ElectricShock" anglemin="0" anglemax="359" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="1.0,1.0" copyentityangle="true" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="1.5" disabledeltatime="true" >
+				<Explosion range="400.0" force="0" shockwave="false" underwaterbubble="false" smoke="false" flames="false" sparks="false" empstrength="0.2">
+					<Affliction identifier="burn" strength="2.5" />
+					<Affliction identifier="stun" strength="0.5"/>
+				</Explosion>
+				<ParticleEmitter position="15,0" particle="ElectricShock" anglemin="0" anglemax="359" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="1.0,1.0" copyentityangle="true" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="1.6" disabledeltatime="true" >
+				<Explosion range="400.0" force="0" shockwave="false" underwaterbubble="false" smoke="false" flames="false" sparks="false" empstrength="0.2">
+					<Affliction identifier="burn" strength="2.5" />
+					<Affliction identifier="stun" strength="0.5"/>
+				</Explosion>
+				<ParticleEmitter position="15,0" particle="ElectricShock" anglemin="0" anglemax="359" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="1.0,1.0" copyentityangle="true" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="1.7" disabledeltatime="true" >
+				<Explosion range="400.0" force="0" shockwave="false" underwaterbubble="false" smoke="false" flames="false" sparks="false" empstrength="0.2">
+					<Affliction identifier="burn" strength="2.5" />
+					<Affliction identifier="stun" strength="0.5"/>
+				</Explosion>
+				<ParticleEmitter position="15,0" particle="ElectricShock" anglemin="0" anglemax="359" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="1.0,1.0" copyentityangle="true" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="1.8" disabledeltatime="true" >
+				<Explosion range="400.0" force="0" shockwave="false" underwaterbubble="false" smoke="false" flames="false" sparks="false" empstrength="0.2">
+					<Affliction identifier="burn" strength="2.5" />
+					<Affliction identifier="stun" strength="0.5"/>
+				</Explosion>
+				<ParticleEmitter position="15,0" particle="ElectricShock" anglemin="0" anglemax="359" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="1.0,1.0" copyentityangle="true" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="1.9" disabledeltatime="true" >
+				<Explosion range="400.0" force="0" shockwave="false" underwaterbubble="false" smoke="false" flames="false" sparks="false" empstrength="0.2">
+					<Affliction identifier="burn" strength="2.5" />
+					<Affliction identifier="stun" strength="0.5"/>
+				</Explosion>
+				<ParticleEmitter position="15,0" particle="ElectricShock" anglemin="0" anglemax="359" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="1.0,1.0" copyentityangle="true" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="2.0" disabledeltatime="true" >
+				<Explosion range="400.0" force="0" shockwave="false" underwaterbubble="false" smoke="false" flames="false" sparks="false" empstrength="0.2">
+					<Affliction identifier="burn" strength="2.5" />
+					<Affliction identifier="stun" strength="0.5"/>
+				</Explosion>
+				<ParticleEmitter position="15,0" particle="ElectricShock" anglemin="0" anglemax="359" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="1.0,1.0" copyentityangle="true" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="2.1" disabledeltatime="true" >
+				<Explosion range="400.0" force="0" shockwave="false" underwaterbubble="false" smoke="false" flames="false" sparks="false" empstrength="0.2">
+					<Affliction identifier="burn" strength="2.5" />
+					<Affliction identifier="stun" strength="0.5"/>
+				</Explosion>
+				<ParticleEmitter position="15,0" particle="ElectricShock" anglemin="0" anglemax="359" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="1.0,1.0" copyentityangle="true" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="2.2" disabledeltatime="true" >
+				<Explosion range="400.0" force="0" shockwave="false" underwaterbubble="false" smoke="false" flames="false" sparks="false" empstrength="0.2">
+					<Affliction identifier="burn" strength="2.5" />
+					<Affliction identifier="stun" strength="0.5"/>
+				</Explosion>
+				<ParticleEmitter position="15,0" particle="ElectricShock" anglemin="0" anglemax="359" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="1.0,1.0" copyentityangle="true" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="2.3" disabledeltatime="true" >
+				<Explosion range="400.0" force="0" shockwave="false" underwaterbubble="false" smoke="false" flames="false" sparks="false" empstrength="0.2">
+					<Affliction identifier="burn" strength="2.5" />
+					<Affliction identifier="stun" strength="0.5"/>
+				</Explosion>
+				<ParticleEmitter position="15,0" particle="ElectricShock" anglemin="0" anglemax="359" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="1.0,1.0" copyentityangle="true" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="2.4" disabledeltatime="true" >
+				<ParticleEmitter position="15,0" particle="ElectricShock" anglemin="0" anglemax="359" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="1.0,1.0" copyentityangle="true" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="2.5" disabledeltatime="true" >
+				<Explosion range="400.0" force="0" shockwave="false" underwaterbubble="false" smoke="false" flames="false" sparks="false" empstrength="0.2">
+					<Affliction identifier="burn" strength="2.5" />
+					<Affliction identifier="stun" strength="0.5"/>
+				</Explosion>
+				<ParticleEmitter position="15,0" particle="ElectricShock" anglemin="0" anglemax="359" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="1.0,1.0" copyentityangle="true" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="2.6" disabledeltatime="true" >
+				<Explosion range="400.0" force="0" shockwave="false" underwaterbubble="false" smoke="false" flames="false" sparks="false" empstrength="0.2">
+					<Affliction identifier="burn" strength="2.5" />
+					<Affliction identifier="stun" strength="0.5"/>
+				</Explosion>
+				<ParticleEmitter position="15,0" particle="ElectricShock" anglemin="0" anglemax="359" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="1.0,1.0" copyentityangle="true" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="2.7" disabledeltatime="true" >
+				<Explosion range="400.0" force="0" shockwave="false" underwaterbubble="false" smoke="false" flames="false" sparks="false" empstrength="0.2">
+					<Affliction identifier="burn" strength="2.5" />
+					<Affliction identifier="stun" strength="0.5"/>
+				</Explosion>
+				<ParticleEmitter position="15,0" particle="ElectricShock" anglemin="0" anglemax="359" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="1.0,1.0" copyentityangle="true" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="2.8" disabledeltatime="true" >
+				<Explosion range="400.0" force="0" shockwave="false" underwaterbubble="false" smoke="false" flames="false" sparks="false" empstrength="0.2">
+					<Affliction identifier="burn" strength="2.5" />
+					<Affliction identifier="stun" strength="0.5"/>
+				</Explosion>
+				<ParticleEmitter position="15,0" particle="ElectricShock" anglemin="0" anglemax="359" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="1.0,1.0" copyentityangle="true" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="2.9" disabledeltatime="true" >
+				<Explosion range="400.0" force="0" shockwave="false" underwaterbubble="false" smoke="false" flames="false" sparks="false" empstrength="0.2">
+					<Affliction identifier="burn" strength="2.5" />
+					<Affliction identifier="stun" strength="0.5"/>
+				</Explosion>
+				<ParticleEmitter position="15,0" particle="ElectricShock" anglemin="0" anglemax="359" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="1.0,1.0" copyentityangle="true" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="3.0" disabledeltatime="true" >
+				<Explosion range="400.0" force="0" shockwave="false" underwaterbubble="false" smoke="false" flames="false" sparks="false" empstrength="0.2">
+					<Affliction identifier="burn" strength="2.5" />
+					<Affliction identifier="stun" strength="0.5"/>
+				</Explosion>
+				<ParticleEmitter position="15,0" particle="ElectricShock" anglemin="0" anglemax="359" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="1.0,1.0" copyentityangle="true" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="This" delay="3.1" disabledeltatime="true" >
+				<Explosion range="400.0" force="0" shockwave="false" underwaterbubble="false" smoke="false" flames="false" sparks="false" empstrength="0.2">
+					<Affliction identifier="burn" strength="2.5" />
+					<Affliction identifier="stun" strength="0.5"/>
+				</Explosion>
+				<ParticleEmitter position="15,0" particle="ElectricShock" anglemin="0" anglemax="359" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="1.0,1.0" copyentityangle="true" />
+			</StatusEffect>
+		</Projectile>
+	</Item>
+</Items>

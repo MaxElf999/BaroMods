@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentpackage name="Status monitor display" path="Mods/Status monitor display/filelist.xml" corepackage="false" gameversion="0.15.13.0" steamworkshopid="2671280767" installtime="1638482107">
+  <Item file="Mods/Status_monitor_display/Status_monitor_display/Status_monitor_display.xml" />
+  <None file="Mods/Status_monitor_display/Status_monitor_display/Status_monitor_display.png" />
+  <None file="Mods/Status_monitor_display/Status_monitor_display/Status_monitor_display_icon.png" />
+</contentpackage>

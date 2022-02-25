@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+	<Item name="Machete" identifier="machete" description="That's not a knife... THIS is a knife" category="Equipment" Tags="smallitem,weapon,gunsmith" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
+    <PreferredContainer primary="armcab" minamount="0" maxamount="2" spawnprobability="0.50"/>
+    <PreferredContainer secondary="wreckarmcab" minamount="0" maxamount="2" spawnprobability="0.25"/>
+    <PreferredContainer secondary="abandonedarmcab,abandonedstoragecab" minamount="1" maxamount="1" spawnprobability="0.25"/>
+    <Price baseprice="80" >
+      <Price locationtype="outpost" multiplier="1.5" minavailable="4" />
+      <Price locationtype="city" multiplier="1.25" minavailable="6" />
+      <Price locationtype="research" multiplier="1.25" minavailable="1" />
+      <Price locationtype="military" multiplier="0.9" minavailable="10" />
+      <Price locationtype="mine" multiplier="1.25" minavailable="2" />
+    </Price>
+    <Deconstruct time="15">
+      <Item identifier="steel" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="15">
+      <RequiredSkill identifier="weapons" level="35" />
+      <RequiredItem identifier="steel" />
+    </Fabricate>
+    <InventoryIcon texture="Mods/Machete/Machete/machete_icon.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
+    <Sprite texture="Mods/Machete/Machete/machete.png" sourcerect="0,0,132,16" depth="0.55" origin="0.5,0.5" />
+    <Body width="132" height="15" density="50" />
+    <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="50,0" handle1="-25,5" holdangle="30" reload="1.0" range="100" combatPriority="30" msg="ItemMsgPickUpSelect">
+      <Attack targetimpulse="2" severlimbsprobability="0.1" itemdamage="10" structuredamage="5" structuresoundtype="StructureSlash">
+        <Affliction identifier="lacerations" strength="20" />
+        <Affliction identifier="bleeding" strength="10" />
+        <Affliction identifier="stun" strength="0.2" />
+        <StatusEffect type="OnUse" target="Character">
+          <Sound file="Content/Sounds/Damage/LimbSlash1.ogg" selectionmode="random" range="500" />
+          <Sound file="Content/Sounds/Damage/LimbSlash2.ogg" range="500" />
+          <Sound file="Content/Sounds/Damage/LimbSlash3.ogg" range="500" />
+          <Sound file="Content/Sounds/Damage/LimbSlash4.ogg" range="500" />
+          <Sound file="Content/Sounds/Damage/LimbSlash5.ogg" range="500" />
+          <Sound file="Content/Sounds/Damage/LimbSlash6.ogg" range="500" />
+        </StatusEffect>
+      </Attack>
+    </MeleeWeapon>
+    <aitarget sightrange="500" soundrange="250" fadeouttime="1" />
+    <Quality>
+      <QualityStat stattype="AttackMultiplier" value="0.1"/>
+    </Quality>
+  </Item>
+</Items>

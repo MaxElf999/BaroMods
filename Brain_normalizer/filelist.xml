@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentpackage name="Brain_normalizer" path="Mods/Brain_normalizer/filelist.xml" corepackage="false" gameversion="0.15.13.0" steamworkshopid="2671276294" installtime="1638481762">
+  <Item file="Mods/Brain_normalizer/Brain_normalizer/Brain_normalizer.xml" />
+  <None file="Mods/Brain_normalizer/Brain_normalizer/Brain_normalizer.png" />
+  <None file="Mods/Brain_normalizer/Brain_normalizer/Brain_normalizer_icon.png" />
+</contentpackage>

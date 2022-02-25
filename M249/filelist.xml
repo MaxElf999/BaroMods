@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentpackage name="M249" path="Mods/Ak-47/filelist.xml" corepackage="false" gameversion="0.15.13.0" steamworkshopid="2671274456" installtime="1638481601">
+  <Item file="Mods/M249/M249/M249.xml" />
+  <None file="Mods/M249/M249/M249.png" />
+  <None file="Mods/M249/M249/M249_icon.png" />
+</contentpackage>

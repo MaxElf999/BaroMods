@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+	<Item name="Brain normalizer" identifier="brainnormalizer" category="Material" maxstacksize="8" cargocontaineridentifier="mediccrate" Tags="smallitem,chem,medical,syringe" description="Makes you feel normal... and you NEED to feel normal" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
+		<PreferredContainer primary="medcab" minamount="2" maxamount="5" />
+		<PreferredContainer primary="wreckmedcab,abandonedmedcab" minamount="0" maxamount="3" spawnprobability="0.4" />
+		<PreferredContainer primary="supplycab" minamount="0" maxamount="3" spawnprobability="0.25" />
+		<PreferredContainer primary="outposttrashcan" minamount="0" maxamount="1" spawnprobability="0.15" />
+		<Price baseprice="100" >
+			<Price locationtype="outpost" multiplier="1" minavailable="12" />
+			<Price locationtype="city" multiplier="0.9" minavailable="16" />
+			<Price locationtype="research" multiplier="0.9" minavailable="18" />
+			<Price locationtype="military" multiplier="1" minavailable="16" />
+			<Price locationtype="mine" multiplier="0.75" minavailable="12" />
+		</Price>
+		<SuitableTreatment identifier="psychosis" suitability="100" />
+		<SuitableTreatment identifier="opiateaddiction" suitability="60" />
+		<SuitableTreatment identifier="opiatewithdrawal" suitability="60" />
+		<SuitableTreatment identifier="opiateoverdose" suitability="60" />
+		<SuitableTreatment identifier="nausea" suitability="60" />
+		<SuitableTreatment identifier="drunk" suitability="60" />
+		<Fabricate suitablefabricators="medicalfabricator" requiredtime="30">
+			<RequiredSkill identifier="medical" level="30" />
+			<RequiredItem identifier="antinarc" />
+			<RequiredItem identifier="ethanol" />
+			<RequiredItem identifier="stabilozine" />
+		</Fabricate>
+		<Deconstruct time="20">
+			<Item identifier="ethanol" copycondition="true" mincondition="0.1" />
+			<Item identifier="stabilozine" copycondition="true" mincondition="0.1" />
+		</Deconstruct>
+		<InventoryIcon texture="Mods/Brain_normalizer/Brain_normalizer/Brain_normalizer_icon.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
+		<Sprite texture="Mods/Brain_normalizer/Brain_normalizer/Brain_normalizer.png" sourcerect="0,0,37,69" depth="0.6" origin="0.5,0.5" />
+		<Body width="35" height="65" density="20" />
+		<MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect">
+			<StatusEffect type="OnFailure" target="This" Condition="-100.0" disabledeltatime="true" />
+			<StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true" />
+			<RequiredSkill identifier="medical" level="30" />
+			<StatusEffect tags="medical" type="OnUse" target="Character" duration="10">
+				<Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
+				<ReduceAffliction identifier="psychosis" amount="100" />
+				<ReduceAffliction identifier="hallucinating" amount="100" />
+				<ReduceAffliction identifier="opiateaddiction" amount="100" />
+				<ReduceAffliction identifier="opiatewithdrawal" amount="100" />
+				<ReduceAffliction identifier="opiateoverdose" amount="100" />
+				<ReduceAffliction identifier="nausea" amount="100" />
+				<ReduceAffliction identifier="drunk" amount="100" />
+				<ReduceAffliction identifier="psychosisresistance" amount="100" />
+				<ReduceAffliction identifier="watchersgaze" amount="100" />
+				<ReduceAffliction identifier="chemwithdrawal" amount="100" />
+				<Affliction identifier="chemaddiction" amount="30" />
+			</StatusEffect>
+			<StatusEffect tags="medical" type="OnFailure" target="Character" duration="10">
+				<Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
+				<Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
+				<ReduceAffliction identifier="psychosis" amount="100" />
+				<ReduceAffliction identifier="hallucinating" amount="100" />
+				<ReduceAffliction identifier="opiateaddiction" amount="100" />
+				<ReduceAffliction identifier="opiatewithdrawal" amount="100" />
+				<ReduceAffliction identifier="opiateoverdose" amount="100" />
+				<ReduceAffliction identifier="nausea" amount="100" />
+				<ReduceAffliction identifier="drunk" amount="100" />
+				<ReduceAffliction identifier="psychosisresistance" amount="100" />
+				<ReduceAffliction identifier="watchersgaze" amount="100" />
+				<ReduceAffliction identifier="chemwithdrawal" amount="50" />
+				<Affliction identifier="chemaddiction" amount="50" />
+			</StatusEffect>
+			<StatusEffect tags="medical" type="OnFailure" target="Character" duration="10">
+				<Conditional medical="lt 20.0"/>
+				<Affliction identifier="chemaddiction" amount="30" />
+			</StatusEffect>
+			<!-- Remove the item when fully used -->
+			<StatusEffect type="OnBroken" target="This">
+				<Remove />
+			</StatusEffect>
+		</MeleeWeapon>
+		<Projectile characterusable="false" launchimpulse="20.0" sticktocharacters="true" launchrotation="-90">
+			<StatusEffect type="OnImpact" target="This" Condition="-100.0" disabledeltatime="true">
+				<Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
+			</StatusEffect>
+			<StatusEffect tags="medical" type="OnImpact" target="Character" duration="10">
+				<ReduceAffliction type="burn" amount="2" />
+				<ReduceAffliction type="damage" amount="2" />
+				<Affliction identifier="oxygenlow" amount="3" />
+				<Affliction identifier="opiateaddiction" amount="2.5" />
+				<Affliction identifier="opiateoverdose" amount="2.0" />
+				<ReduceAffliction identifier="opiatewithdrawal" amount="3.0" />
+			</StatusEffect>
+		</Projectile>
+	</Item>
+</Items>

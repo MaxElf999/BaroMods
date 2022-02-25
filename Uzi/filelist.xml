@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentpackage name="Uzi" path="Mods/Uzi/filelist.xml" corepackage="false" gameversion="0.15.13.0" steamworkshopid="2671281931" installtime="1638482210">
+  <Item file="Mods/Uzi/Uzi/Uzi.xml" />
+  <None file="Mods/Uzi/Uzi/Uzi.png" />
+  <None file="Mods/Uzi/Uzi/Uzi_icon.png" />
+</contentpackage>

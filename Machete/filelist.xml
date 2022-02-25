@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentpackage name="Machete" path="Mods/Machete/filelist.xml" corepackage="false" gameversion="0.15.13.0" steamworkshopid="2671279550" installtime="1638482006">
+  <Item file="Mods/Machete/Machete/machete.xml" />
+  <None file="Mods/Machete/Machete/machete.png" />
+  <None file="Mods/Machete/Machete/machete_icon.png" />
+</contentpackage>

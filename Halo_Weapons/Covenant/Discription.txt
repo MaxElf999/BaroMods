@@ -1,0 +1,37 @@
+Plasma Pistol
+Type-54 Directed Energy Pistol
+Ammunition: plasma
+Magazine: built in battery unit
+Rate of fire:
+Required skill:
+Unskilled spread:
+Skilled spread:
+Fabricator requirements:
+
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+Plasma Grenade
+A Covenant antipersonnel grenade that sticks to targets
+Explosion: 
+Fuze: 3 seconds after impact
+Sticks to: characters
+Fabricator requirements: liquid oxygenite and plastic
+
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+Spike Grenade
+A Jiralhanae antipersonnel fragmentation grenade that sticks to targets and walls
+Explosion: 
+Fuze: 3 seconds after impact
+Duration (of spikes): 3 seconds
+Sticks to: characters and structures
+Fabricator requirements: steel bar and UEX
+
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+Dynamo Grenade
+A Banished shock grenade
+Shock: 
+Fuze: 0.4 seconds after impact
+Duration: 2.7 seconds
+Fabricator requirements: steel bar and battery

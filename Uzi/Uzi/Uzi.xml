@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+	<Item name="Uzi round" identifier="uziround" category="Equipment" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="smallitem" impactsoundtag="impact_metal_light" hideinmenus="true" scale="0.5">
+		<InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="896,960,64,64" origin="0.5,0.5" />
+		<Sprite texture="Content/Items/Weapons/weapons_new.png" sourcerect="195,282,17,6" depth="0.55" origin="0.5,0.5" />
+		<Body width="40" height="14" density="40" />
+		<Pickable slots="Any" msg="ItemMsgPickUpSelect"/>
+		<Projectile characterusable="false" hitscan="true" removeonhit="true">
+			<ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="255,255,115,175" scalemultiplier="1,0.6"/>
+			<Attack structuredamage="2.5" targetforce="5" itemdamage="10" severlimbsprobability="0.05">
+				<Affliction identifier="bleeding" strength="10.0" />
+				<Affliction identifier="gunshotwound" strength="10.0" />
+				<Affliction identifier="stun" strength="0.1" />
+			</Attack>
+			<StatusEffect type="OnImpact" target="UseTarget">
+				<ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="UseTarget">
+				<Conditional entitytype="eq Structure"/>
+				<Conditional hastag="eq door"/>
+				<ParticleEmitter particle="spark" copyentityangle="true" anglemin="-10" anglemax="10" particleamount="5" velocitymin="-10" velocitymax="-200" scalemin="0.5" scalemax="1" />
+			</StatusEffect>
+		</Projectile>
+	</Item>
+	<Item name="Uzi magazine" identifier="uzimagazine" scale="0.5" category="Equipment" cargocontaineridentifier="metalcrate" linkable="true" tags="smallitem,uziammo" impactsoundtag="impact_metal_light">
+		<PreferredContainer primary="uzi" minamount="1" maxamount="1" />
+		<PreferredContainer primary="secarmcab" minamount="0" maxamount="5" spawnprobability="0.3"/>
+		<PreferredContainer primary="wrecksecarmcab" minamount="0" maxamount="3" spawnprobability="0.25"/>
+		<PreferredContainer primary="abandonedsecarmcab" minamount="1" maxamount="2" spawnprobability="0.4"/>
+		<Price baseprice="100" soldeverywhere="false">
+			<Price locationtype="outpost" multiplier="1.5" sold="false" />
+			<Price locationtype="city" multiplier="1.25" minavailable="2" />
+			<Price locationtype="research" multiplier="1.25" sold="false" />
+			<Price locationtype="military" multiplier="0.9" minavailable="4" />
+			<Price locationtype="mine" multiplier="1.25" sold="false" />
+		</Price>
+		<Fabricate suitablefabricators="fabricator" requiredtime="25">
+			<RequiredSkill identifier="weapons" level="40" />
+			<RequiredItem identifier="magnesium" />
+			<RequiredItem identifier="lead" />
+			<RequiredItem identifier="steel" />
+		</Fabricate>
+		<Deconstruct time="10">
+			<Item identifier="lead" copycondition="true" mincondition="0.1" />
+			<Item identifier="steel" />
+		</Deconstruct>
+		<InventoryIcon texture="Mods/Uzi/Uzi/Uzi_icon.png" sourcerect="64,0,64,64" />
+		<Sprite texture="Mods/Uzi/Uzi/Uzi.png" depth="0.56" sourcerect="162,0,15,73" origin="0.5,0.5" />
+		<Body width="15" height="70" density="50" />
+		<ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" SpawnWithId="smground" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+			<Containable items="uziround" />
+			<!--Spawn an SMG round on use. Condition -3.125 -> 32 shots per magazine.-->
+			<StatusEffect type="OnUse" target="This" condition="-3.125" disabledeltatime="true">
+				<SpawnItem identifiers="uziround" spawnposition="ThisInventory" />
+			</StatusEffect>
+		</ItemContainer>
+		<!--Magazines can be combined to raise condition.-->
+		<Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+	</Item>
+
+	<Item name="Uzi" identifier="uzi" description="" category="Equipment" cargocontaineridentifier="metalcrate" tags="smallitem,weapon,gun,pistolitem,gunsmith" Scale="0.5" impactsoundtag="impact_metal_light">
+		<PreferredContainer primary="weaponholder" spawnprobability="0.1"/>
+		<PreferredContainer primary="secarmcab" minamount="1" maxamount="3" spawnprobability="1"/>
+		<PreferredContainer primary="wrecksecarmcab" minamount="0" maxamount="2" spawnprobability="0.25"/>
+		<PreferredContainer primary="abandonedsecarmcab" minamount="1" maxamount="1" spawnprobability="0.4"/>
+		<Price baseprice="300" soldeverywhere="false">
+			<Price locationtype="outpost" multiplier="1.5"  sold="false"/>
+			<Price locationtype="city" multiplier="1.25" minavailable="1" />
+			<Price locationtype="research" multiplier="1.25" sold="false"/>
+			<Price locationtype="military" multiplier="0.9" minavailable="2" />
+			<Price locationtype="mine" multiplier="1.25"  sold="false"/>
+		</Price>
+		<Deconstruct time="10">
+			<Item identifier="steel" />
+		</Deconstruct>
+		<InventoryIcon texture="Mods/Uzi/Uzi/Uzi_icon.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
+		<Sprite texture="Mods/Uzi/Uzi/Uzi.png" sourcerect="0,0,134,52" depth="0.55" origin="0.5,0.5" />
+		<Body width="134" height="52" density="50" />
+		<Holdable slots="Any,RightHand,LeftHand" controlpose="true" aimpos="70,5" handle1="-23,-5" msg="ItemMsgPickUpSelect"/>
+		<RangedWeapon reload="0.1" barrelpos="43,9" spread="10" unskilledspread="16" combatPriority="80" drawhudwhenequipped="true" crosshairscale="0.2">
+			<Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
+			<CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
+			<ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" />
+			<Sound file="Content/Items/Weapons/SMGsingleShot1.ogg" type="OnUse" range="3000" selectionmode="Random" />
+			<Sound file="Content/Items/Weapons/SMGsingleShot2.ogg" type="OnUse" range="3000" />
+			<Sound file="Content/Items/Weapons/SMGsingleShot3.ogg" type="OnUse" range="3000" />
+			<Sound file="Content/Items/Weapons/SMGsingleShot4.ogg" type="OnUse" range="3000" />
+			<Sound file="Content/Items/Weapons/SMGsingleShot5.ogg" type="OnUse" range="3000" />
+			<Sound file="Content/Items/Weapons/SMGsingleShot6.ogg" type="OnUse" range="3000" />
+			<StatusEffect type="OnUse">
+				<Explosion range="150.0" force="1.5" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" />
+			</StatusEffect>
+			<!--"Use" contained magazine to spawn projectiles.-->
+			<StatusEffect type="OnUse" target="Contained">
+				<Use />
+			</StatusEffect>
+			<RequiredItems items="uziammo" type="Contained" msg="ItemMsgAmmoRequired" />
+			<RequiredSkill identifier="weapons" level="40" />
+		</RangedWeapon>
+		<ItemContainer capacity="1" maxstacksize="1" hideitems="false" itempos="-17,-12" containedstateindicatorstyle="bullet">
+			<Containable items="uziammo" />
+		</ItemContainer>
+		<aitarget sightrange="2000" soundrange="4000" fadeouttime="5" />
+		<Quality>
+			<QualityStat stattype="AttackMultiplier" value="0.1"/>
+		</Quality>
+	</Item>
+</Items>

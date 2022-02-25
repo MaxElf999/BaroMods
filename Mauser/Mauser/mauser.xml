@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+	<Item name="Mauser" identifier="mauser" category="Equipment" cargocontaineridentifier="metalcrate" tags="smallitem,weapon,gun,pistolitem,gunsmith" Scale="0.5" impactsoundtag="impact_metal_light">
+		<PreferredContainer primary="weaponholder" spawnprobability="0.2"/>
+		<PreferredContainer primary="secarmcab" minamount="1" maxamount="3" spawnprobability="1"/>
+		<PreferredContainer primary="wrecksecarmcab" minamount="0" maxamount="1" spawnprobability="0.25"/>
+		<PreferredContainer primary="abandonedsecarmcab" minamount="1" maxamount="1" spawnprobability="0.4"/>
+		<Price baseprice="150" soldeverywhere="false">
+			<Price locationtype="outpost" multiplier="1.5" sold="false"/>
+			<Price locationtype="city" multiplier="1.25" minavailable="2" />
+			<Price locationtype="research" multiplier="1.25" sold="false"/>
+			<Price locationtype="military" multiplier="0.9" minavailable="3" />
+			<Price locationtype="mine" multiplier="1.25" sold="false"/>
+		</Price>
+		<Deconstruct time="10">
+			<Item identifier="steel" />
+		</Deconstruct>
+		<InventoryIcon texture="Mods/Mauser/Mauser/mauser_icon.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
+		<Sprite texture="Mods/Mauser/Mauser/Mauser.png" sourcerect="0,0,102,53" depth="0.55" origin="0.5,0.5" />
+		<Body width="72" height="40" density="50" />
+		<Holdable slots="Any,RightHand,LeftHand" controlpose="true" aimpos="75,5" handle1="-40,-9" msg="ItemMsgPickUpSelect" />
+		<RangedWeapon reload="0.2" barrelpos="30,21" spread="2" unskilledspread="6" combatPriority="70" drawhudwhenequipped="true" crosshairscale="0.2">
+			<Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
+			<CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
+			<Sound file="Content/Items/Weapons/SMGsingleShot1.ogg" type="OnUse" range="3000" selectionmode="Random" />
+            <Sound file="Content/Items/Weapons/SMGsingleShot2.ogg" type="OnUse" range="3000" />
+            <Sound file="Content/Items/Weapons/SMGsingleShot3.ogg" type="OnUse" range="3000" />
+            <Sound file="Content/Items/Weapons/SMGsingleShot4.ogg" type="OnUse" range="3000" />
+            <Sound file="Content/Items/Weapons/SMGsingleShot5.ogg" type="OnUse" range="3000" />
+            <Sound file="Content/Items/Weapons/SMGsingleShot6.ogg" type="OnUse" range="3000" />
+			<ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" />
+			<StatusEffect type="OnUse">
+				<Explosion range="150.0" force="1.5" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" camerashake="6.0" />
+			</StatusEffect>
+			<RequiredItems items="mauserammo" type="Contained" msg="ItemMsgAmmoRequired" />
+			<RequiredSkill identifier="weapons" level="30" />
+		</RangedWeapon>
+		<ItemContainer capacity="1" maxstacksize="10" hideitems="true" containedstateindicatorstyle="bullet">
+			<Containable items="mauserammo" />
+		</ItemContainer>
+		<aitarget sightrange="2000" soundrange="5000" fadeouttime="5" />
+		<Quality>
+			<QualityStat stattype="AttackMultiplier" value="0.1"/>
+		</Quality>
+	</Item>
+	<Item name="Mauser round" identifier="mauserround" category="Equipment" maxstacksize="10" interactthroughwalls="true" cargocontaineridentifier="metalcrate" Scale="0.5" tags="smallitem,mauserammo,pistolammoitem" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="mauser" minamount="10" maxamount="10" spawnprobability="1"/>
+    <PreferredContainer primary="secarmcab" minamount="0" maxamount="10" spawnprobability="0.25"/>
+    <PreferredContainer primary="wrecksecarmcab" minamount="0" maxamount="3" spawnprobability="0.2"/>
+    <PreferredContainer primary="abandonedsecarmcab" minamount="0" maxamount="7" spawnprobability="0.25"/>
+    <Price baseprice="30" soldeverywhere="false">
+      <Price locationtype="outpost" multiplier="1.5" minavailable="10" />
+      <Price locationtype="city" multiplier="1.25" minavailable="20" />
+      <Price locationtype="research" multiplier="1.25" minavailable="10" />
+      <Price locationtype="military" multiplier="0.9" minavailable="40" />
+      <Price locationtype="mine" multiplier="1.25" minavailable="20" />
+    </Price>
+    <Fabricate suitablefabricators="fabricator" requiredtime="20" amount="5">
+      <RequiredSkill identifier="weapons" level="25" />
+      <RequiredItem identifier="magnesium" />
+      <RequiredItem identifier="lead" />
+    </Fabricate>
+    <InventoryIcon texture="Mods/Mauser/Mauser/mauser_bullet_icon.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
+    <Sprite texture="Mods/Mauser/Mauser/mauser_bullet.png" sourcerect="0,0,21,7" depth="0.55" origin="0.5,0.5" />
+    <Body width="29" height="10" density="40" />
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+    <Projectile characterusable="false" hitscan="true" removeonhit="true">
+      <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="255,255,115,175" scalemultiplier="1,0.6"/>
+      <Attack structuredamage="5" targetforce="10" itemdamage="20" severlimbsprobability="0.1">
+        <Affliction identifier="bleeding" strength="10" />
+        <Affliction identifier="gunshotwound" strength="20" />
+        <Affliction identifier="stun" strength="0.25" />
+      </Attack>
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <Conditional entitytype="eq Structure"/>
+        <Conditional hastag="eq door"/>
+        <ParticleEmitter particle="spark" copyentityangle="true" anglemin="-10" anglemax="10" particleamount="5" velocitymin="-10" velocitymax="-200" scalemin="0.5" scalemax="1" />
+      </StatusEffect>
+    </Projectile>
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+  </Item>
+</Items>

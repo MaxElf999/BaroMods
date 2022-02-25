@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+	<Item name="M1911 magazine" identifier="m1911magazine" scale="0.5" category="Equipment" cargocontaineridentifier="metalcrate" linkable="true" tags="smallitem,m1911ammo" impactsoundtag="impact_metal_light">
+		<PreferredContainer primary="m1911" minamount="1" maxamount="1" spawnprobability="1"/>
+		<PreferredContainer primary="secarmcab" minamount="0" maxamount="5" spawnprobability="0.3"/>
+		<PreferredContainer primary="wrecksecarmcab" minamount="0" maxamount="3" spawnprobability="0.25"/>
+		<PreferredContainer primary="abandonedsecarmcab" minamount="1" maxamount="2" spawnprobability="0.4"/>
+		<Price baseprice="50" soldeverywhere="false">
+			<Price locationtype="outpost" multiplier="1.5" minavailable="1" />
+			<Price locationtype="city" multiplier="1.25" minavailable="2" />
+			<Price locationtype="research" multiplier="1.25" minavailable="1" />
+			<Price locationtype="military" multiplier="0.9" minavailable="4" />
+			<Price locationtype="mine" multiplier="1.25" minavailable="2" />
+		</Price>
+		<Fabricate suitablefabricators="fabricator" requiredtime="15">
+			<RequiredSkill identifier="weapons" level="20" />
+			<RequiredItem identifier="magnesium" />
+			<RequiredItem identifier="lead" />
+		</Fabricate>
+		<Deconstruct time="10">
+			<Item identifier="lead" copycondition="true" mincondition="0.1" />
+		</Deconstruct>
+		<InventoryIcon texture="Mods/M1911/M1911/m1911_icon.png" sourcerect="64,0,64,64" />
+		<Sprite texture="Mods/M1911/M1911/m1911.png" depth="0.54" sourcerect="72,0,17,35" origin="0.5,0.5" />
+		<Body width="17" height="35" density="50" />
+		<ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" SpawnWithId="smground" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+			<Containable items="smground" />
+			<!--Spawn an SMG round on use. Condition -12.5 -> 8 shots per magazine.-->
+			<StatusEffect type="OnUse" target="This" condition="-12.5" disabledeltatime="true">
+				<SpawnItem identifiers="smground" spawnposition="ThisInventory" />
+			</StatusEffect>
+		</ItemContainer>
+		<!--Magazines can be combined to raise condition.-->
+		<Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+	</Item>
+
+	<Item name="M1911" identifier="m1911" description="It worked for your great-grandfather's great-grandfather's great-grandfather's..." category="Equipment" cargocontaineridentifier="metalcrate" tags="smallitem,weapon,gun,pistolitem,gunsmith" Scale="0.5" impactsoundtag="impact_metal_light">
+		<PreferredContainer primary="weaponholder" spawnprobability="0.1"/>
+		<PreferredContainer primary="secarmcab" minamount="1" maxamount="3" spawnprobability="1"/>
+		<PreferredContainer primary="wrecksecarmcab" minamount="0" maxamount="2" spawnprobability="0.25"/>
+		<PreferredContainer primary="abandonedsecarmcab" minamount="1" maxamount="1" spawnprobability="0.4"/>
+		<Price baseprice="100" soldeverywhere="false">
+			<Price locationtype="outpost" multiplier="1.5"  minavailable="2"/>
+			<Price locationtype="city" multiplier="1.25" minavailable="4" />
+			<Price locationtype="research" multiplier="1.25" sold="false"/>
+			<Price locationtype="military" multiplier="0.9" minavailable="5" />
+			<Price locationtype="mine" multiplier="1.25"  minavailable="2"/>
+		</Price>
+		<Fabricate suitablefabricators="fabricator" requiredtime="20">
+			<RequiredSkill identifier="weapons" level="20" />
+			<RequiredItem identifier="steel" />
+		</Fabricate>
+		<Deconstruct time="10">
+			<Item identifier="steel" />
+		</Deconstruct>
+		<InventoryIcon texture="Mods/M1911/M1911/m1911_icon.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
+		<Sprite texture="Mods/M1911/M1911/m1911.png" sourcerect="0,0,71,46" depth="0.55" origin="0.5,0.5" />
+		<Body width="70" height="44" density="50" />
+		<Holdable slots="Any,RightHand,LeftHand" controlpose="true" aimpos="70,5" handle1="-23,-5" msg="ItemMsgPickUpSelect"/>
+		<RangedWeapon reload="0.5" barrelpos="34,7" spread="0" unskilledspread="2" combatPriority="30" drawhudwhenequipped="true" crosshairscale="0.2">
+			<Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
+			<CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
+			<ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" />
+			<Sound file="Content/Items/Weapons/SMGsingleShot1.ogg" type="OnUse" range="3000" selectionmode="Random" />
+			<Sound file="Content/Items/Weapons/SMGsingleShot2.ogg" type="OnUse" range="3000" />
+			<Sound file="Content/Items/Weapons/SMGsingleShot3.ogg" type="OnUse" range="3000" />
+			<Sound file="Content/Items/Weapons/SMGsingleShot4.ogg" type="OnUse" range="3000" />
+			<Sound file="Content/Items/Weapons/SMGsingleShot5.ogg" type="OnUse" range="3000" />
+			<Sound file="Content/Items/Weapons/SMGsingleShot6.ogg" type="OnUse" range="3000" />
+			<StatusEffect type="OnUse">
+				<Explosion range="150.0" force="1.0" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" />
+			</StatusEffect>
+			<!--"Use" contained magazine to spawn projectiles.-->
+			<StatusEffect type="OnUse" target="Contained">
+				<Use />
+			</StatusEffect>
+			<RequiredItems items="m1911ammo" type="Contained" msg="ItemMsgAmmoRequired" />
+			<RequiredSkill identifier="weapons" level="20" />
+		</RangedWeapon>
+		<ItemContainer capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="bullet">
+			<Containable items="m1911ammo" />
+		</ItemContainer>
+		<aitarget sightrange="2000" soundrange="4000" fadeouttime="5" />
+		<Quality>
+			<QualityStat stattype="AttackMultiplier" value="0.1"/>
+		</Quality>
+	</Item>
+</Items>

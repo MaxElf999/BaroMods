@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentpackage name="Halo Weapons" path="Mods/Halo_Weapons/filelist.xml" corepackage="false" gameversion="0.15.13.0">
+  <Item file="Mods/Halo_Weapons/Human/Human.xml" />
+  <Item file="Mods/Halo_Weapons/Covenant/Covenant.xml" />
+
+  <None file="Mods/Halo_Weapons/Human/MA40.png" />
+  <None file="Mods/Halo_Weapons/Human/casing.png" />
+  <None file="Mods/Halo_Weapons/Human/MK50.png" />
+  <None file="Mods/Halo_Weapons/Human/Hydra.png" />
+  <None file="Mods/Halo_Weapons/Human/Hydra_1.ogg" />
+  <None file="Mods/Halo_Weapons/Human/Hydra_2.ogg" />
+  <None file="Mods/Halo_Weapons/Human/Hydra_3.ogg" />
+  <None file="Mods/Halo_Weapons/Human/BR75.png" />
+  <None file="Mods/Halo_Weapons/Human/BR75.ogg" />
+  <None file="Mods/Halo_Weapons/Human/CQS48.png" />
+  <None file="Mods/Halo_Weapons/Human/VK78.png" />
+  <None file="Mods/Halo_Weapons/Human/S7.png" />
+  <None file="Mods/Halo_Weapons/Human/BR75.png" />
+  <None file="Mods/Halo_Weapons/Human/M41.png" />
+  <None file="Mods/Halo_Weapons/Covenant/Grenades.png" />
+  <None file="Mods/Halo_Weapons/Covenant/Plasma_Pistol.png" />
+	
+  <Particles file="Mods/Halo_Weapons/Particles.xml" />
+  <None file="Mods/Halo_Weapons/PlasmaExplosion.png" />
+  <None file="Mods/Halo_Weapons/MuzzleFlash.png" />
+	
+  <None file="Mods/Halo_Weapons/Human/Discription.txt" />
+  <None file="Mods/Halo_Weapons/Covenant/Discription.txt" />
+</contentpackage>

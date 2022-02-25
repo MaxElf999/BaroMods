@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+	<Item name="Active mine" identifier="activemine" category="Equipment" noninteractable="False" scale="0.5" condition="100" tags="smallitem,weapon,explosive,demolitionsexpert" spritedepth="0.8" impactsoundtag="impact_metal_light">
+		<InventoryIcon texture="Mods/Landmine/Landmine/Landmine_icon.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
+		<Sprite texture="Mods/Landmine/Landmine/Landmine.png" sourcerect="0,0,73,20" depth="0.55" origin="0.5,0.5" />
+		<Body width="73" hieght="20" density="50"/>
+		<Holdable holdpos="0,0" holdangle="0" swingamount="0,0" swingspeed="0" swingwhenholding="False" swingwhenaiming="False" swingwhenusing="False" pickingtime="5" canbepicked="True" allowingameediting="True" msg="ItemMsgDetachWrench">
+			<requireditem identifiers="wrench" type="Equipped" optional="false" ignoreineditor="false" />
+		</Holdable>
+		<MotionSensor onlyhumans="False" rangex="35" rangey="10" />
+		<ItemComponent characterusable="false">
+			<!-- statuseffect that explodes the grenade when used by something else than a character (e.g. a detonator) -->
+			<StatusEffect type="Always" target="This">
+				<Conditionals MotionDetected="True" />
+				<sound file="Content/Items/Weapons/ExplosionMedium1.ogg" type="OnUse" range="10000" selectionmode="All" />
+				<sound file="Content/Items/Weapons/ExplosionDebris1.ogg" type="OnUse" range="10000" />
+				<Explosion range="600.0" structuredamage="10" ballastfloradamage="120" itemdamage="500" force="10" severlimbsprobability="0.5" decal="explosion" decalsize="0.5">
+					<Affliction identifier="bleeding" strength="80" />
+					<Affliction identifier="explosiondamage" strength="180" />
+					<Affliction identifier="stun" strength="5"/>
+				</Explosion>
+				<Remove />
+			</StatusEffect>
+		</ItemComponent>
+	</Item>
+</Items>

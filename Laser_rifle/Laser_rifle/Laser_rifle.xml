@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+	<Item name="Laser rifle" identifier="laserrifle" category="Alien" Tags="alien,mediumitem,weapon" scale="0.5" impactsoundtag="impact_metal_heavy">
+		<Price baseprice="1000" soldeverywhere="false">
+			<Price locationtype="outpost" multiplier="0.9" sold="false"/>
+			<Price locationtype="city" multiplier="0.9" sold="false"/>
+			<Price locationtype="research" multiplier="1.3" sold="false"/>
+			<Price locationtype="military" multiplier="1.2" sold="false"/>
+			<Price locationtype="mine" multiplier="0.9" sold="false"/>
+		</Price>
+		<PreferredContainer primary="wrecksecurearmcab,wreckshuttlecrate" minamount="0" maxamount="1" spawnprobability="0.04"/>
+		<PreferredContainer primary="ruinstoragelarge" minamount="0" maxamount="1" spawnprobability="0.1"/>
+		<Deconstruct time="20">
+			<Item identifier="dementonite" />
+			<Item identifier="dementonite" />
+			<Item identifier="fulgurium" />
+		</Deconstruct>
+		<InventoryIcon texture="Mods/Laser_rifle/Laser_rifle/Laser_rifle_icon.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
+		<Sprite texture="Mods/Laser_rifle/Laser_rifle/Laser_rifle.png" depth="0.55" sourcerect="0,0,236,74" origin="0.5,0.5" scale="0.5" />
+		<Body width="235" height="74" density="60" />
+		<Holdable slots="Any,RightHand+LeftHand" aimpos="100,0" handle1="0,11" handle2="2,11" msg="ItemMsgPickUpSelect" />
+		<RangedWeapon reload="0.5" barrelpos="75,0" targetforce="50" combatpriority="20" spread="0" unskilledspread="2" drawhudwhenequipped="true" crosshairscale="0.2">
+			<Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
+			<CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
+			<RequiredItems items="reactorfuel" type="Contained" />
+			<StatusEffect type="OnUse" target="Contained" Condition="-5.0" />
+			<sound file="Content/Items/Alien/alienweapon.ogg" type="OnUse" range="800.0" />
+			<StatusEffect type="OnUse">
+				<SpawnItem identifiers="laserrifleround" />
+			</StatusEffect>
+		</RangedWeapon>
+		<ItemContainer capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="bullet">
+			<Containable items="reactorfuel" />
+		</ItemContainer>
+	</Item>
+	<Item name="Laser rifle round" identifier="laserrifleround">
+		<Sprite texture="Content/Items/Weapons/weapons_new.png" sourcerect="195,282,17,6" depth="0.55" origin="0.5,0.5" />
+		<Projectile characterusable="false" hitscan="true" removeonhit="true">
+			<ParticleEmitter particle="tracerpulselaser" particleamount="1" velocitymin="0" velocitymax="0"/>
+			<Attack structuredamage="25" targetforce="5" itemdamage="25" severlimbsprobability="0.5" >
+				<Affliction identifier="burn" strength="80" />
+				<Affliction identifier="stun" strength="0.4" />
+			</Attack>
+			<StatusEffect type="OnImpact" target="UseTarget">
+				<ParticleEmitter particle="muzzleflashpulselaser" anglemin="0" anglemax="360" particleamount="10" velocitymin="0" scalemin="0.5" scalemax="0.8" />
+				<ParticleEmitter particle="weldspark" particleamount="5" anglemin="0" anglemax="360" velocitymin="300" velocitymax="350" scalemin="1.5" scalemax="1.9" drawontop="true" colormultiplier="255,200,225,180" />
+				<ParticleEmitter particle="FlareBubbles" particleamount="3" anglemin="0" anglemax="360" velocitymin="0" velocitymax="50"/>
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="UseTarget">
+				<Conditional entitytype="eq Structure"/>
+				<Conditional hastag="eq door"/>
+				<ParticleEmitter particle="spark" copyentityangle="true" anglemin="-10" anglemax="10" particleamount="5" velocitymin="-10" velocitymax="-200" scalemin="0.5" scalemax="1" />
+			</StatusEffect>
+			<StatusEffect type="OnUse" target="This" disabledeltatime="true">
+				<Explosion range="150.0" structuredamage="25" itemdamage="25" force="10.0" flames="false" smoke="false" sparks="false" underwaterbubble="false" flashcolor="255,0,0,255" >
+					<Affliction identifier="explosiondamage" strength="40" />
+					<Affliction identifier="burn" strength="20" />
+				</Explosion>
+			</StatusEffect>
+		</Projectile>
+	</Item>
+</Items>

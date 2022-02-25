@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentpackage name="M1911" path="Mods/M1911/filelist.xml" corepackage="false" gameversion="0.15.13.0" steamworkshopid="2671278830" installtime="1638481949">
+  <Item file="Mods/M1911/M1911/m1911.xml" />
+  <None file="Mods/M1911/M1911/m1911.png" />
+  <None file="Mods/M1911/M1911/m1911_icon.png" />
+</contentpackage>

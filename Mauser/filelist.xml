@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentpackage name="Mauser" path="Mods/Mauser/filelist.xml" corepackage="false" gameversion="0.15.13.0" steamworkshopid="2671280103" installtime="1638482054">
+  <Item file="Mods/Mauser/Mauser/mauser.xml" />
+  <None file="Mods/Mauser/Mauser/mauser.png" />
+  <None file="Mods/Mauser/Mauser/mauser_icon.png" />
+  <None file="Mods/Mauser/Mauser/mauser_bullet.png" />
+  <None file="Mods/Mauser/Mauser/mauser_bullet_icon.png" />
+</contentpackage>

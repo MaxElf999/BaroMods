@@ -1,0 +1,984 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+	<!--MA40 Assault Rifle-->
+	<Item name="MA40 Assault Rifle" identifier="ma40" category="Equipment" description="A standard issue UNSC assault rifle with mounted flashlight" cargocontaineridentifier="metalcrate" tags="weapon,gun,gunsmith" Scale="0.5" impactsoundtag="impact_metal_light">
+		<PreferredContainer primary="secarmcab" />
+		<Price baseprice="1000" soldeverywhere="false">
+			<Price locationtype="outpost" multiplier="1.5" sold="false" />
+			<Price locationtype="city" multiplier="1.25" sold="false" />
+			<Price locationtype="research" multiplier="1.25" sold="false" />
+			<Price locationtype="military" multiplier="0.9" sold="false" />
+			<Price locationtype="mine" multiplier="1.25" sold="false" />
+		</Price>
+		<Fabricate suitablefabricators="fabricator" requiredtime="55">
+			<RequiredSkill identifier="weapons" level="80" />
+			<RequiredItem identifier="ballisticfiber" />
+			<RequiredItem identifier="dementonite" />
+			<RequiredItem identifier="titaniumaluminiumalloy" />
+			<RequiredItem identifier="fpgacircuit" />
+		</Fabricate>
+		<Deconstruct time="35">
+			<Item identifier="ballisticfiber" />
+			<Item identifier="dementonite" />
+			<Item identifier="titaniumaluminiumalloy" />
+			<Item identifier="fpgacircuit" />
+		</Deconstruct>
+		<InventoryIcon texture="Mods/Halo_Weapons/Human/MA40.png" sourcerect="0,0,219,73" origin="0.5,0.5" />
+		<Sprite texture="Mods/Halo_Weapons/Human/MA40.png" sourcerect="0,0,219,73" depth="0.55" origin="0.5,0.5" />
+		<Body width="219" height="73" density="70" />
+		<Holdable slots="RightHand+LeftHand" controlpose="true" holdpos="50,0" aimpos="65,0" handle1="-45,-17" handle2="60,5" holdangle="-30" >
+			<LightComponent LightColor="0.4,0.4,0.7,1.0" Flicker="0.02" range="1000" powerconsumption="0" IsOn="true" >
+				<LightTexture texture="Content/Lights/lightcone.png" origin="0.0, 0.5015" size="1.0,1.0" />
+			</LightComponent>
+		</Holdable>
+		<Wearable slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select">
+			<sprite name="MA40 Assault Rifle Worn" texture="Mods/Halo_Weapons/Human/MA40.png" canbehiddenbyotherwearables="false" rotation="90" inheritlimbdepth="false" depth="0.6" sourcerect="0,0,219,73" limb="Torso" scale="0.5" origin="0.5,1.0" />
+		</Wearable>
+		<RangedWeapon reload="0.09375" barrelpos="115,18" spread="4" unskilledspread="12" combatPriority="90" drawhudwhenequipped="true" crosshairscale="0.2">
+			<Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
+			<CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
+			<ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" />
+			<Sound file="Content/Items/JobGear/Security/WEAPONS_assaultRifle_1.ogg" type="OnUse" range="3000" selectionmode="Random" />
+			<Sound file="Content/Items/JobGear/Security/WEAPONS_assaultRifle_2.ogg" type="OnUse" range="3000" />
+			<Sound file="Content/Items/JobGear/Security/WEAPONS_assaultRifle_3.ogg" type="OnUse" range="3000" />
+			<Sound file="Content/Items/JobGear/Security/WEAPONS_assaultRifle_4.ogg" type="OnUse" range="3000" />
+			<Sound file="Content/Items/JobGear/Security/WEAPONS_assaultRifle_5.ogg" type="OnUse" range="3000" />
+			<StatusEffect type="OnUse">
+				<Explosion range="150.0" force="1.2" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" camerashake="12.0" />
+			</StatusEffect>
+			<StatusEffect type="OnUse" target="Contained">
+				<Use />
+			</StatusEffect>
+			<RequiredItems items="ma40ammo" type="Contained" msg="ItemMsgAmmoRequired" sound="Content/Items/Weapons/ShotgunLoad2.ogg"/>
+			<RequiredSkill identifier="weapons" level="60" />
+		</RangedWeapon>
+		<ItemContainer capacity="1" maxstacksize="1" hideitems="false" itempos="-82,-8" spawnwithid="ma40fmjap" containedspritedepth="0.56" containedstateindicatorstyle="bullet">
+			<Containable items="ma40ammo" />
+		</ItemContainer>
+		<aitarget sightrange="2000" soundrange="4000" fadeouttime="5" />
+		<Quality>
+			<QualityStat stattype="AttackMultiplier" value="0.1" />
+		</Quality>
+	</Item>
+	<Item name="MA40 FMJ-AP Magazine" identifier="ma40fmjap" description="7.62x51mm full metal jacket armor-piercing rounds" scale="0.5" category="Equipment" cargocontaineridentifier="metalcrate" linkable="true" tags="smallitem,ma40ammo" impactsoundtag="impact_metal_light">
+		<PreferredContainer primary="ma40" />
+		<PreferredContainer primary="secarmcab" />
+			
+		<Price baseprice="450" minleveldifficulty="60" soldeverywhere="false">
+			<Price locationtype="outpost" multiplier="1.4" sold="false" />
+			<Price locationtype="city" multiplier="1.25" sold="false" />
+			<Price locationtype="research" multiplier="1.25" sold="false" />
+			<Price locationtype="military" multiplier="0.9" sold="false" />
+			<Price locationtype="mine" multiplier="1.25" sold="false" />
+		</Price>
+		<Fabricate suitablefabricators="fabricator" requiredtime="40">
+			<RequiredSkill identifier="weapons" level="50" />
+			<RequiredItem identifier="magnesium" />
+			<RequiredItem identifier="copper" />
+			<RequiredItem identifier="steel" />
+			<RequiredItem identifier="steel" />
+		</Fabricate>
+		<Fabricate suitablefabricators="fabricator" displayname="recycleitem" requiredtime="30">
+			<RequiredSkill identifier="weapons" level="50" />
+			<RequiredItem identifier="magnesium" />
+			<RequiredItem identifier="copper" />
+			<RequiredItem identifier="steel" />
+			<RequiredItem identifier="ma40fmjap" mincondition="0.0" maxcondition="0.0" usecondition="false"/>
+		</Fabricate>
+		<Deconstruct time="15">
+			<Item identifier="copper" copycondition="true" mincondition="0.05" />
+			<Item identifier="steel" copycondition="true" mincondition="0.05" />
+			<Item identifier="steel" />
+		</Deconstruct>
+		<InventoryIcon texture="Mods/Halo_Weapons/Human/MA40.png" sourcerect="233,21,33,46" origin="0.5,0.5" />
+		<Sprite texture="Mods/Halo_Weapons/Human/MA40.png" sourcerect="233,21,33,46" depth="0.55" origin="0.5,0.5" />
+		<Body width="28" height="45" density="50" />
+		<ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" SpawnWithId="762x51mmfmjap" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+			<Containable items="762x51mmfmjap" />
+			<StatusEffect type="OnUse" target="This" condition="-2.778" disabledeltatime="true">
+				<SpawnItem identifiers="762x51mmfmjap" spawnposition="ThisInventory" />
+			</StatusEffect>
+		</ItemContainer>
+		<Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+	</Item>
+	<Item name="7.62x51mm FMJ-AP" identifier="762x51mmfmjap" category="Equipment" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="smallitem" impactsoundtag="impact_metal_light" hideinmenus="true" scale="0.5">
+		<InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="896,960,64,64" origin="0.5,0.5" />
+		<Sprite texture="Content/Items/Weapons/weapons_new.png" sourcerect="195,282,17,6" depth="0.55" origin="0.5,0.5" />
+		<Body width="40" height="14" density="40" />
+		<Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+		<Projectile characterusable="false" hitscan="true" removeonhit="true">
+			<ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="255,200,200,175" scalemultiplier="1,0.8" />
+			<Attack structuredamage="3" targetforce="6" itemdamage="20" penetration="0.4" severlimbsprobability="0.05">
+				<Affliction identifier="bleeding" strength="8" />
+				<Affliction identifier="gunshotwound" strength="30" />
+				<Affliction identifier="stun" strength="0.25" />
+			</Attack>
+			<StatusEffect type="OnImpact" target="UseTarget">
+				<ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="2,2" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="UseTarget">
+				<Conditional entitytype="eq Structure" />
+				<Conditional hastag="eq door" />
+				<ParticleEmitter particle="spark" copyentityangle="true" anglemin="-10" anglemax="10" particleamount="5" velocitymin="-10" velocitymax="-200" scalemin="0.5" scalemax="1" />
+			</StatusEffect>
+		</Projectile>
+	</Item>
+	<Item name="MA40 Shredder Magazine" identifier="ma40shredder" description="7.62x51mm shredder rounds designed to shatter inside lightly armored targets" scale="0.5" category="Equipment" cargocontaineridentifier="metalcrate" linkable="true" tags="smallitem,ma40ammo" impactsoundtag="impact_metal_light">
+		<PreferredContainer primary="ma40" />
+		<PreferredContainer primary="secarmcab" />
+			
+		<Price baseprice="550" minleveldifficulty="60" soldeverywhere="false">
+			<Price locationtype="outpost" multiplier="1.4" sold="false" />
+			<Price locationtype="city" multiplier="1.25" sold="false" />
+			<Price locationtype="research" multiplier="1.25" sold="false" />
+			<Price locationtype="military" multiplier="0.9" sold="false" />
+			<Price locationtype="mine" multiplier="1.25" sold="false" />
+		</Price>
+		<Fabricate suitablefabricators="fabricator" requiredtime="40">
+			<RequiredSkill identifier="weapons" level="90" />
+			<RequiredItem identifier="magnesium" />
+			<RequiredItem identifier="lead" />
+			<RequiredItem identifier="steel" />
+			<RequiredItem identifier="steel" />
+		</Fabricate>
+		<Fabricate suitablefabricators="fabricator" displayname="recycleitem" requiredtime="30">
+			<RequiredSkill identifier="weapons" level="90" />
+			<RequiredItem identifier="magnesium" />
+			<RequiredItem identifier="lead" />
+			<RequiredItem identifier="steel" />
+			<RequiredItem identifier="ma40shredder" mincondition="0.0" maxcondition="0.0" usecondition="false"/>
+		</Fabricate>
+		<Deconstruct time="15">
+			<Item identifier="lead" copycondition="true" mincondition="0.05" />
+			<Item identifier="steel" copycondition="true" mincondition="0.05" />
+			<Item identifier="steel" />
+		</Deconstruct>
+		<InventoryIcon texture="Mods/Halo_Weapons/Human/MA40.png" sourcerect="273,21,33,46" origin="0.5,0.5" />
+		<Sprite texture="Mods/Halo_Weapons/Human/MA40.png" sourcerect="273,21,33,46" depth="0.55" origin="0.5,0.5" />
+		<Body width="28" height="45" density="50" />
+		<ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" SpawnWithId="762x51mmshredder" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+			<Containable items="762x51mmshredder" />
+			<StatusEffect type="OnUse" target="This" condition="-2.778" disabledeltatime="true">
+				<SpawnItem identifiers="762x51mmshredder" spawnposition="ThisInventory" />
+			</StatusEffect>
+		</ItemContainer>
+		<Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+	</Item>
+	<Item name="7.62x51mm Shredder" identifier="762x51mmshredder" category="Equipment" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="smallitem" impactsoundtag="impact_metal_light" hideinmenus="true" scale="0.5">
+		<InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="896,960,64,64" origin="0.5,0.5" />
+		<Sprite texture="Content/Items/Weapons/weapons_new.png" sourcerect="195,282,17,6" depth="0.55" origin="0.5,0.5" />
+		<Body width="40" height="14" density="40" />
+		<Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+		<Projectile characterusable="false" hitscan="true" removeonhit="true">
+			<ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="255,200,200,175" scalemultiplier="1,0.8" />
+			<Attack structuredamage="0.5" targetforce="8" itemdamage="20" severlimbsprobability="0.2">
+				<Affliction identifier="bleeding" strength="30" />
+				<Affliction identifier="gunshotwound" strength="10" />
+				<Affliction identifier="lacerations" strength="20" />
+				<Affliction identifier="stun" strength="0.4" />
+			</Attack>
+			<StatusEffect type="OnImpact" target="UseTarget">
+				<ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="2,3" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="UseTarget">
+				<Conditional entitytype="eq Structure" />
+				<Conditional hastag="eq door" />
+				<ParticleEmitter particle="spark" copyentityangle="true" anglemin="-20" anglemax="20" particleamount="5" velocitymin="-100" velocitymax="-200" scalemin="1" scalemax="1.5" />
+			</StatusEffect>
+		</Projectile>
+	</Item>
+	
+	<!--▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬-->
+	
+	<!--MK50 Sidekick-->
+	<Item name="MK50 Sidekick" identifier="mk50" description="10mm UNSC sidearm pistol" category="Equipment" cargocontaineridentifier="metalcrate" tags="smallitem,weapon,gun,pistolitem,gunsmith" Scale="0.5" impactsoundtag="impact_metal_light">
+		<PreferredContainer primary="secarmcab" />
+		<Price baseprice="100" soldeverywhere="false">
+			<Price locationtype="outpost" multiplier="1.5"  minavailable="2"/>
+			<Price locationtype="city" multiplier="1.25" minavailable="4" />
+			<Price locationtype="research" multiplier="1.25" sold="false"/>
+			<Price locationtype="military" multiplier="0.9" minavailable="5" />
+			<Price locationtype="mine" multiplier="1.25"  minavailable="2"/>
+		</Price>
+		<Fabricate suitablefabricators="fabricator" requiredtime="20">
+			<RequiredSkill identifier="weapons" level="30" />
+			<RequiredItem identifier="steel" />
+			<RequiredItem identifier="plastic" />
+		</Fabricate>
+		<Deconstruct time="10">
+			<Item identifier="steel" />
+			<Item identifier="plastic" />
+		</Deconstruct>
+		<InventoryIcon texture="Mods/Halo_Weapons/Human/MK50.png" sourcerect="0,0,55,39" origin="0.5,0.5" />
+		<Sprite texture="Mods/Halo_Weapons/Human/MK50.png" sourcerect="0,0,55,39" depth="0.55" origin="0.5,0.5" />
+		<Body width="55" height="39" density="50" />
+		<Holdable slots="Any,RightHand,LeftHand" controlpose="true" aimpos="70,10" handle1="-20,-6" msg="ItemMsgPickUpSelect"/>
+		<RangedWeapon reload="0.4" barrelpos="28,15" spread="0" unskilledspread="4" combatPriority="35" drawhudwhenequipped="true" crosshairscale="0.2">
+			<Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
+			<CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
+			<ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" />
+			<Sound file="Content/Items/Weapons/SMGsingleShot1.ogg" type="OnUse" range="3000" selectionmode="Random" />
+			<Sound file="Content/Items/Weapons/SMGsingleShot2.ogg" type="OnUse" range="3000" />
+			<Sound file="Content/Items/Weapons/SMGsingleShot3.ogg" type="OnUse" range="3000" />
+			<Sound file="Content/Items/Weapons/SMGsingleShot4.ogg" type="OnUse" range="3000" />
+			<Sound file="Content/Items/Weapons/SMGsingleShot5.ogg" type="OnUse" range="3000" />
+			<Sound file="Content/Items/Weapons/SMGsingleShot6.ogg" type="OnUse" range="3000" />
+			<StatusEffect type="OnUse">
+				<Explosion range="150.0" force="1.0" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" camerashake="2.0" />
+			</StatusEffect>
+			<StatusEffect type="OnUse" target="Contained">
+				<Use />
+			</StatusEffect>
+			<RequiredItems items="mk50ammo" type="Contained" msg="ItemMsgAmmoRequired" />
+			<RequiredSkill identifier="weapons" level="30" />
+		</RangedWeapon>
+		<ItemContainer capacity="1" maxstacksize="1" hideitems="true" spawnwithid="mk50magazine" containedstateindicatorstyle="bullet">
+			<Containable items="mk50ammo" />
+		</ItemContainer>
+		<aitarget sightrange="2000" soundrange="4000" fadeouttime="5" />
+		<Quality>
+			<QualityStat stattype="AttackMultiplier" value="0.1"/>
+		</Quality>
+	</Item>
+	<Item name="MK50 magazine" identifier="mk50magazine" description="10mm pistol ammo" scale="0.5" category="Equipment" cargocontaineridentifier="metalcrate" linkable="true" tags="smallitem,mk50ammo" impactsoundtag="impact_metal_light">
+		<PreferredContainer primary="mk50" minamount="1" maxamount="1" spawnprobability="1"/>
+		<PreferredContainer primary="secarmcab" />
+		
+		<Price baseprice="50" soldeverywhere="false">
+			<Price locationtype="outpost" multiplier="1.5" minavailable="1" />
+			<Price locationtype="city" multiplier="1.25" minavailable="2" />
+			<Price locationtype="research" multiplier="1.25" minavailable="1" />
+			<Price locationtype="military" multiplier="0.9" minavailable="4" />
+			<Price locationtype="mine" multiplier="1.25" minavailable="2" />
+		</Price>
+		<Fabricate suitablefabricators="fabricator" requiredtime="15">
+			<RequiredSkill identifier="weapons" level="20" />
+			<RequiredItem identifier="magnesium" />
+			<RequiredItem identifier="lead" />
+			<RequiredItem identifier="plastic" />
+		</Fabricate>
+		<Fabricate suitablefabricators="fabricator" displayname="recycleitem" requiredtime="10">
+			<RequiredSkill identifier="weapons" level="20" />
+			<RequiredItem identifier="magnesium" />
+			<RequiredItem identifier="lead" />
+			<RequiredItem identifier="mk50magazine" mincondition="0.0" maxcondition="0.0" usecondition="false"/>
+		</Fabricate>
+		<Deconstruct time="10">
+			<Item identifier="lead" copycondition="true" mincondition="0.05" />
+			<Item identifier="plastic" />
+		</Deconstruct>
+		<InventoryIcon texture="Mods/Halo_Weapons/Human/MK50.png" sourcerect="55,0,21,39" origin="0.5,0.5" />
+		<Sprite texture="Mods/Halo_Weapons/Human/MK50.png" depth="0.56" sourcerect="55,0,21,39" origin="0.5,0.5" />
+		<Body width="17" height="35" density="50" />
+		<ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" SpawnWithId="10mm" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+			<Containable items="10mm" />
+			<StatusEffect type="OnUse" target="This" condition="-8.34" disabledeltatime="true">
+				<SpawnItem identifiers="10mm" spawnposition="ThisInventory" />
+			</StatusEffect>
+		</ItemContainer>
+		<Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+	</Item>
+	<Item name="10mm Round" identifier="10mm" category="Equipment" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="smallitem" impactsoundtag="impact_metal_light" hideinmenus="true" scale="0.5">
+		<InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="896,960,64,64" origin="0.5,0.5" />
+		<Sprite texture="Content/Items/Weapons/weapons_new.png" sourcerect="195,282,17,6" depth="0.55" origin="0.5,0.5" />
+		<Body width="40" height="14" density="40" />
+		<Pickable slots="Any" msg="ItemMsgPickUpSelect"/>
+		<Projectile characterusable="false" hitscan="true" removeonhit="true">
+			<ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="255,255,115,175" scalemultiplier="1,0.6"/>
+			<Attack structuredamage="2.5" targetforce="5" itemdamage="10" severlimbsprobability="0.05">
+				<Affliction identifier="bleeding" strength="15" />
+				<Affliction identifier="gunshotwound" strength="15" />
+				<Affliction identifier="stun" strength="0.15" />
+			</Attack>
+			<StatusEffect type="OnImpact" target="UseTarget">
+				<ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="UseTarget">
+				<Conditional entitytype="eq Structure"/>
+				<Conditional hastag="eq door"/>
+				<ParticleEmitter particle="spark" copyentityangle="true" anglemin="-10" anglemax="10" particleamount="5" velocitymin="-10" velocitymax="-200" scalemin="0.5" scalemax="1" />
+			</StatusEffect>
+		</Projectile>
+	</Item>
+
+	<!--▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬-->
+	
+	<!--BR75 Battle Rifle-->
+	<Item name="BR75 Battle Rifle" identifier="br75" category="Equipment" description="A 3-round burst-fire UNSC battle rifle" cargocontaineridentifier="metalcrate" tags="weapon,gun,gunsmith" Scale="0.5" impactsoundtag="impact_metal_light">
+		<PreferredContainer primary="secarmcab" />
+		<Price baseprice="1000" soldeverywhere="false">
+			<Price locationtype="outpost" multiplier="1.5" sold="false" />
+			<Price locationtype="city" multiplier="1.25" sold="false" />
+			<Price locationtype="research" multiplier="1.25" sold="false" />
+			<Price locationtype="military" multiplier="0.9" sold="false" />
+			<Price locationtype="mine" multiplier="1.25" sold="false" />
+		</Price>
+		<Fabricate suitablefabricators="fabricator" requiredtime="55">
+			<RequiredSkill identifier="weapons" level="80" />
+			<RequiredItem identifier="ballisticfiber" />
+			<RequiredItem identifier="dementonite" />
+			<RequiredItem identifier="titaniumaluminiumalloy" />
+		</Fabricate>
+		<Deconstruct time="35">
+			<Item identifier="ballisticfiber" />
+			<Item identifier="dementonite" />
+			<Item identifier="titaniumaluminiumalloy" />
+		</Deconstruct>
+		<InventoryIcon texture="Mods/Halo_Weapons/Human/BR75.png" sourcerect="0,0,208,67" origin="0.5,0.5" />
+		<Sprite texture="Mods/Halo_Weapons/Human/BR75.png" sourcerect="0,0,208,67" depth="0.55" origin="0.5,0.5" />
+		<Body width="208" height="73" density="70" />
+		<Holdable slots="RightHand+LeftHand" controlpose="true" holdpos="50,0" aimpos="60,0" handle1="-35,-20" handle2="70,0" holdangle="-30" />
+		<Wearable slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select">
+			<sprite name="BR75 Battle Rifle Worn" texture="Mods/Halo_Weapons/Human/BR75.png" canbehiddenbyotherwearables="false" rotation="90" inheritlimbdepth="false" depth="0.6" sourcerect="0,0,208,73" limb="Torso" scale="0.5" origin="0.5,1.0" />
+		</Wearable>
+		<RangedWeapon reload="0.5" barrelpos="104,6" spread="2" unskilledspread="8" combatPriority="90" drawhudwhenequipped="true" crosshairscale="0.2">
+			<Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
+			<CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
+			<ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" />
+			<Sound file="Mods/Halo_Weapons/Human/BR75.ogg" type="OnUse" range="3000" />
+			<StatusEffect type="OnUse">
+				<Explosion range="150.0" force="1.0" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" camerashake="8.0" />
+			</StatusEffect>
+			<StatusEffect type="OnUse" target="Contained">
+				<Use />
+			</StatusEffect>
+			<RequiredItems items="br75ammo" type="Contained" msg="ItemMsgAmmoRequired" sound="Content/Items/Weapons/ShotgunLoad2.ogg"/>
+			<RequiredSkill identifier="weapons" level="60" />
+		</RangedWeapon>
+		<ItemContainer capacity="1" maxstacksize="1" hideitems="false" spawnwithid="br75magazine" itempos="-72,-5" containedspritedepth="0.56" containedstateindicatorstyle="bullet">
+			<Containable items="br75ammo" />
+		</ItemContainer>
+		<aitarget sightrange="2000" soundrange="4000" fadeouttime="5" />
+		<Quality>
+			<QualityStat stattype="AttackMultiplier" value="0.1" />
+		</Quality>
+	</Item>
+	<Item name="BR75 Magazine" identifier="br75magazine" description="9.5×40mm High Powered Semi-Armor-Piercing" scale="0.5" category="Equipment" cargocontaineridentifier="metalcrate" linkable="true" tags="smallitem,br75ammo" impactsoundtag="impact_metal_light">
+		<PreferredContainer primary="br75" />
+		<PreferredContainer primary="secarmcab" />
+			
+		<Price baseprice="450" minleveldifficulty="60" soldeverywhere="false">
+			<Price locationtype="outpost" multiplier="1.4" sold="false" />
+			<Price locationtype="city" multiplier="1.25" sold="false" />
+			<Price locationtype="research" multiplier="1.25" sold="false" />
+			<Price locationtype="military" multiplier="0.9" sold="false" />
+			<Price locationtype="mine" multiplier="1.25" sold="false" />
+		</Price>
+		<Fabricate suitablefabricators="fabricator" requiredtime="40">
+			<RequiredSkill identifier="weapons" level="50" />
+			<RequiredItem identifier="magnesium" />
+			<RequiredItem identifier="lead" />
+			<RequiredItem identifier="steel" />
+			<RequiredItem identifier="steel" />
+		</Fabricate>
+		<Fabricate suitablefabricators="fabricator" displayname="recycleitem" requiredtime="30">
+			<RequiredSkill identifier="weapons" level="50" />
+			<RequiredItem identifier="magnesium" />
+			<RequiredItem identifier="lead" />
+			<RequiredItem identifier="steel" />
+			<RequiredItem identifier="br75magazine" mincondition="0.0" maxcondition="0.0" usecondition="false"/>
+		</Fabricate>
+		<Deconstruct time="15">
+			<Item identifier="lead" copycondition="true" mincondition="0.05" />
+			<Item identifier="steel" copycondition="true" mincondition="0.05" />
+			<Item identifier="steel" />
+		</Deconstruct>
+		<InventoryIcon texture="Mods/Halo_Weapons/Human/BR75.png" sourcerect="209,0,37,32" origin="0.5,0.5" />
+		<Sprite texture="Mods/Halo_Weapons/Human/BR75.png" sourcerect="209,0,37,32" depth="0.55" origin="0.5,0.5" />
+		<Body width="37" height="32" density="50" />
+		<ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" SpawnWithId="95×40mmhpsap" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+			<Containable items="95×40mmhpsap" />
+			<StatusEffect type="OnUse" target="This" condition="-8.34" disabledeltatime="true">
+				<SpawnItem identifiers="95×40mmhpsap" spawnposition="ThisInventory" />
+			</StatusEffect>
+		</ItemContainer>
+		<Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+	</Item>
+	<Item name="9.5×40mm HP-SAP" identifier="95×40mmhpsap" category="Equipment" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="smallitem" impactsoundtag="impact_metal_light" hideinmenus="true" scale="0.5">
+		<InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="896,960,64,64" origin="0.5,0.5" />
+		<Sprite texture="Content/Items/Weapons/weapons_new.png" sourcerect="195,282,17,6" depth="0.55" origin="0.5,0.5" />
+		<Body width="40" height="14" density="40" />
+		<Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+		<Projectile characterusable="false" hitscan="true" hitscancount="3" spread="2" removeonhit="true">
+			<ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="255,200,200,175" scalemultiplier="1,0.8" />
+			<Attack structuredamage="3" targetforce="6" itemdamage="20" penetration="0.2" severlimbsprobability="0.1">
+				<Affliction identifier="bleeding" strength="15" />
+				<Affliction identifier="gunshotwound" strength="35" />
+				<Affliction identifier="stun" strength="0.25" />
+			</Attack>
+			<StatusEffect type="OnImpact" target="UseTarget">
+				<ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="2,2" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="UseTarget">
+				<Conditional entitytype="eq Structure" />
+				<Conditional hastag="eq door" />
+				<ParticleEmitter particle="spark" copyentityangle="true" anglemin="-10" anglemax="10" particleamount="5" velocitymin="-10" velocitymax="-200" scalemin="0.5" scalemax="1" />
+			</StatusEffect>
+		</Projectile>
+	</Item>
+
+	<!--▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬-->
+	
+	<!--CQS48 Bulldog-->
+	<Item name="CQS48 Bulldog" identifier="cqs48" category="Equipment" description="12-gauge pump-action UNSC shotgun" cargocontaineridentifier="metalcrate" tags="weapon,gun,gunsmith" Scale="0.5" impactsoundtag="impact_metal_light">
+		<PreferredContainer primary="secarmcab" />
+		<Price baseprice="1000" soldeverywhere="false">
+			<Price locationtype="outpost" multiplier="1.5" sold="false" />
+			<Price locationtype="city" multiplier="1.25" sold="false" />
+			<Price locationtype="research" multiplier="1.25" sold="false" />
+			<Price locationtype="military" multiplier="0.9" sold="false" />
+			<Price locationtype="mine" multiplier="1.25" sold="false" />
+		</Price>
+		<Fabricate suitablefabricators="fabricator" requiredtime="55">
+			<RequiredSkill identifier="weapons" level="50" />
+			<RequiredItem identifier="ballisticfiber" />
+			<RequiredItem identifier="dementonite" />
+			<RequiredItem identifier="titaniumaluminiumalloy" />
+		</Fabricate>
+		<Deconstruct time="35">
+			<Item identifier="ballisticfiber" />
+			<Item identifier="dementonite" />
+			<Item identifier="titaniumaluminiumalloy" />
+		</Deconstruct>
+		<InventoryIcon texture="Mods/Halo_Weapons/Human/CQS48.png" sourcerect="0,0,213,63" origin="0.5,0.5" />
+		<Sprite texture="Mods/Halo_Weapons/Human/CQS48.png" sourcerect="0,0,213,63" depth="0.55" origin="0.5,0.5" />
+		<Body width="212" height="62" density="70" />
+		<Holdable slots="RightHand+LeftHand" controlpose="true" holdpos="50,0" aimpos="60,-5" handle1="-38,-17" handle2="70,5" holdangle="-30" />
+		<Wearable slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select">
+			<sprite name="CQS48 BullDog Worn" texture="Mods/Halo_Weapons/Human/CQS48.png" canbehiddenbyotherwearables="false" rotation="90" inheritlimbdepth="false" depth="0.6" sourcerect="0,0,213,63" limb="Torso" scale="0.5" origin="0.5,1.0" />
+		</Wearable>
+		<RangedWeapon reload="0.8" barrelpos="112,15" spread="0" unskilledspread="5" combatPriority="90" drawhudwhenequipped="true" crosshairscale="0.2">
+			<Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
+			<CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
+			<ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" />
+			<Sound file="Content/Items/Weapons/ShotgunShot1.ogg" type="OnUse" range="3000" selectionmode="Random" />
+			<Sound file="Content/Items/Weapons/ShotgunShot2.ogg" type="OnUse" range="3000" />
+			<Sound file="Content/Items/Weapons/ShotgunShot3.ogg" type="OnUse" range="3000" />
+			<Sound file="Content/Items/Weapons/ShotgunShot4.ogg" type="OnUse" range="3000" />
+			<StatusEffect type="OnUse">
+				<Explosion range="150.0" force="2.5" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" camerashake="12.0" />
+			</StatusEffect>
+			<StatusEffect type="OnUse" target="Contained">
+				<Use />
+			</StatusEffect>
+			<StatusEffect type="OnUse" delay="0.5">
+				<Sound file="Content/Items/Weapons/ShotgunLoad1.ogg" type="OnUse" range="3000" selectionmode="Random"   />
+				<Sound file="Content/Items/Weapons/ShotgunLoad2.ogg" type="OnUse" range="3000" />
+				<Sound file="Content/Items/Weapons/ShotgunLoad3.ogg" type="OnUse" range="3000" />
+			</StatusEffect>
+			<RequiredItems items="csq48ammo" type="Contained" msg="ItemMsgAmmoRequired" />
+			<RequiredSkill identifier="weapons" level="60" />
+		</RangedWeapon>
+		<ItemContainer capacity="1" maxstacksize="1" hideitems="false" itempos="11,1" spawnwithid="csq48magazine" containedspritedepth="0.56" containedstateindicatorstyle="bullet">
+			<Containable items="csq48ammo" />
+		</ItemContainer>
+		<aitarget sightrange="2000" soundrange="5000" fadeouttime="5" />
+		<Quality>
+			<QualityStat stattype="AttackMultiplier" value="0.1" />
+		</Quality>
+	</Item>
+	<Item name="CQS48 Magazine" identifier="csq48magazine" description="7-round 12-gauge drum magazine" scale="0.5" category="Equipment" cargocontaineridentifier="metalcrate" linkable="true" tags="smallitem,csq48ammo" impactsoundtag="impact_metal_light">
+		<PreferredContainer primary="csq48" />
+		<PreferredContainer primary="secarmcab" />
+
+		<Price baseprice="450" minleveldifficulty="60" soldeverywhere="false">
+			<Price locationtype="outpost" multiplier="1.4" sold="false" />
+			<Price locationtype="city" multiplier="1.25" sold="false" />
+			<Price locationtype="research" multiplier="1.25" sold="false" />
+			<Price locationtype="military" multiplier="0.9" sold="false" />
+			<Price locationtype="mine" multiplier="1.25" sold="false" />
+		</Price>
+		<Fabricate suitablefabricators="fabricator" requiredtime="40">
+			<RequiredSkill identifier="weapons" level="40" />
+			<RequiredItem identifier="magnesium" />
+			<RequiredItem identifier="lead" />
+			<RequiredItem identifier="plastic" />
+			<RequiredItem identifier="steel" />
+		</Fabricate>
+		<Fabricate suitablefabricators="fabricator" displayname="recycleitem" requiredtime="30">
+			<RequiredSkill identifier="weapons" level="40" />
+			<RequiredItem identifier="magnesium" />
+			<RequiredItem identifier="lead" />
+			<RequiredItem identifier="plastic" />
+			<RequiredItem identifier="csq48magazine" mincondition="0.0" maxcondition="0.0" usecondition="false"/>
+		</Fabricate>
+		<Deconstruct time="15">
+			<Item identifier="lead" copycondition="true" mincondition="0.05" />
+			<Item identifier="plastic" copycondition="true" mincondition="0.05" />
+			<Item identifier="steel" />
+		</Deconstruct>
+		<InventoryIcon texture="Mods/Halo_Weapons/Human/CQS48.png" sourcerect="214,0,25,35" origin="0.5,0.5" />
+		<Sprite texture="Mods/Halo_Weapons/Human/CQS48.png" sourcerect="214,0,25,35" depth="0.55" origin="0.5,0.5" />
+		<Body width="25" height="35" density="50" />
+		<ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" SpawnWithId="12gauge" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+			<Containable items="12gauge" />
+			<StatusEffect type="OnUse" target="This" condition="-14.286" disabledeltatime="true">
+				<SpawnItem identifiers="12gauge" spawnposition="ThisInventory" />
+			</StatusEffect>
+		</ItemContainer>
+		<Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+	</Item>
+	<Item name="12-Gauge Shotgun Shell" identifier="12gauge" category="Equipment" maxstacksize="8" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="smallitem,shotgunammo" Scale="0.5" impactsoundtag="impact_metal_light">
+		<InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="832,960,64,64" origin="0.5,0.5" />
+		<Sprite texture="Content/Items/Weapons/weapons_new.png" sourcerect="189,299,23,11" depth="0.55" origin="0.5,0.5" />
+		<Body width="23" height="10" density="40" />
+		<Pickable slots="Any" msg="ItemMsgPickUpSelect"/>
+		<Projectile characterusable="false" hitscan="true" hitscancount="8" removeonhit="true" spread="5">
+			<ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="255,255,115,100" scalemultiplier="1,0.5"/>
+			<Attack structuredamage="0.5" targetforce="4" itemdamage="15" severlimbsprobability="0.2">
+				<Affliction identifier="bleeding" strength="6" />
+				<Affliction identifier="gunshotwound" strength="8" />
+				<Affliction identifier="stun" strength="0.2" />
+			</Attack>
+			<StatusEffect type="OnImpact" target="UseTarget">
+				<ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="UseTarget">
+				<Conditional entitytype="eq Structure"/>
+				<Conditional hastag="eq door"/>
+				<ParticleEmitter particle="spark" copyentityangle="true" anglemin="-10" anglemax="10" particleamount="5" velocitymin="-10" velocitymax="-200" scalemin="0.5" scalemax="1" />
+			</StatusEffect>
+		</Projectile>
+	</Item>
+
+	<!--▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬-->
+	
+	<!--VK78 Commando-->
+	<Item name="VK78 Commando" identifier="vk78" category="Equipment" description="A more traditional-style UNSC assault rifle" cargocontaineridentifier="metalcrate" tags="weapon,gun,gunsmith" Scale="0.5" impactsoundtag="impact_metal_light">
+		<PreferredContainer primary="secarmcab" />
+		<Price baseprice="1000" soldeverywhere="false">
+			<Price locationtype="outpost" multiplier="1.5" sold="false" />
+			<Price locationtype="city" multiplier="1.25" sold="false" />
+			<Price locationtype="research" multiplier="1.25" sold="false" />
+			<Price locationtype="military" multiplier="0.9" sold="false" />
+			<Price locationtype="mine" multiplier="1.25" sold="false" />
+		</Price>
+		<Fabricate suitablefabricators="fabricator" requiredtime="55">
+			<RequiredSkill identifier="weapons" level="80" />
+			<RequiredItem identifier="ballisticfiber" />
+			<RequiredItem identifier="titaniumaluminiumalloy" />
+			<RequiredItem identifier="titaniumaluminiumalloy" />
+		</Fabricate>
+		<Deconstruct time="35">
+			<Item identifier="ballisticfiber" />
+			<Item identifier="titaniumaluminiumalloy" />
+			<Item identifier="titaniumaluminiumalloy" />
+		</Deconstruct>
+		<InventoryIcon texture="Mods/Halo_Weapons/Human/VK78.png" sourcerect="0,0,206,65" origin="0.5,0.5" />
+		<Sprite texture="Mods/Halo_Weapons/Human/VK78.png" sourcerect="0,0,206,65" depth="0.55" origin="0.5,0.5" />
+		<Body width="206" height="65" density="70" />
+		<Holdable slots="RightHand+LeftHand" controlpose="true" holdpos="50,0" aimpos="62,-5" handle1="-60,-13" handle2="60,7" holdangle="-30" />
+		<Wearable slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select">
+			<sprite name="VK78 Commando Worn" texture="Mods/Halo_Weapons/Human/VK78.png" canbehiddenbyotherwearables="false" rotation="90" inheritlimbdepth="false" depth="0.6" sourcerect="0,0,206,65" limb="Torso" scale="0.5" origin="0.5,1.0" />
+		</Wearable>
+		<RangedWeapon reload="0.15" barrelpos="110,20" spread="8" unskilledspread="16" combatPriority="90" drawhudwhenequipped="true" crosshairscale="0.2">
+			<Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
+			<CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
+			<ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" />
+			<Sound file="Content/Items/JobGear/Security/WEAPONS_assaultRifle_1.ogg" type="OnUse" range="3000" selectionmode="Random" />
+			<Sound file="Content/Items/JobGear/Security/WEAPONS_assaultRifle_2.ogg" type="OnUse" range="3000" />
+			<Sound file="Content/Items/JobGear/Security/WEAPONS_assaultRifle_3.ogg" type="OnUse" range="3000" />
+			<Sound file="Content/Items/JobGear/Security/WEAPONS_assaultRifle_4.ogg" type="OnUse" range="3000" />
+			<Sound file="Content/Items/JobGear/Security/WEAPONS_assaultRifle_5.ogg" type="OnUse" range="3000" />
+			<StatusEffect type="OnUse">
+				<Explosion range="150.0" force="1.5" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" camerashake="12.0" />
+			</StatusEffect>
+			<StatusEffect type="OnUse" target="Contained">
+				<Use />
+			</StatusEffect>
+			<RequiredItems items="vk78ammo" type="Contained" msg="ItemMsgAmmoRequired" sound="Content/Items/Weapons/ShotgunLoad2.ogg"/>
+			<RequiredSkill identifier="weapons" level="60" />
+		</RangedWeapon>
+		<ItemContainer capacity="1" maxstacksize="1" hideitems="true" spawnwithid="vk78magazine" containedspritedepth="0.56" containedstateindicatorstyle="bullet">
+			<Containable items="vk78ammo" />
+		</ItemContainer>
+		<aitarget sightrange="2000" soundrange="4000" fadeouttime="5" />
+		<Quality>
+			<QualityStat stattype="AttackMultiplier" value="0.1" />
+		</Quality>
+	</Item>
+	<Item name="VK78 Magazine" identifier="vk78magazine" description="" scale="0.5" category="Equipment" cargocontaineridentifier="metalcrate" linkable="true" tags="smallitem,vk78ammo" impactsoundtag="impact_metal_light">
+		<PreferredContainer primary="vk78" />
+		<PreferredContainer primary="secarmcab" />
+
+		<Price baseprice="450" minleveldifficulty="60" soldeverywhere="false">
+			<Price locationtype="outpost" multiplier="1.4" sold="false" />
+			<Price locationtype="city" multiplier="1.25" sold="false" />
+			<Price locationtype="research" multiplier="1.25" sold="false" />
+			<Price locationtype="military" multiplier="0.9" sold="false" />
+			<Price locationtype="mine" multiplier="1.25" sold="false" />
+		</Price>
+		<Fabricate suitablefabricators="fabricator" requiredtime="40">
+			<RequiredSkill identifier="weapons" level="50" />
+			<RequiredItem identifier="magnesium" />
+			<RequiredItem identifier="copper" />
+			<RequiredItem identifier="lead" />
+			<RequiredItem identifier="steel" />
+		</Fabricate>
+		<Fabricate suitablefabricators="fabricator" displayname="recycleitem" requiredtime="30">
+			<RequiredSkill identifier="weapons" level="50" />
+			<RequiredItem identifier="magnesium" />
+			<RequiredItem identifier="copper" />
+			<RequiredItem identifier="lead" />
+			<RequiredItem identifier="vk78magazine" mincondition="0.0" maxcondition="0.0" usecondition="false"/>
+		</Fabricate>
+		<Deconstruct time="15">
+			<Item identifier="copper" copycondition="true" mincondition="0.05" />
+			<Item identifier="lead" copycondition="true" mincondition="0.05" />
+			<Item identifier="steel" />
+		</Deconstruct>
+		<InventoryIcon texture="Mods/Halo_Weapons/Human/VK78.png" sourcerect="207,0,43,54" origin="0.5,0.5" />
+		<Sprite texture="Mods/Halo_Weapons/Human/VK78.png" sourcerect="207,0,43,54" depth="0.55" origin="0.5,0.5" />
+		<Body width="43" height="54" density="50" />
+		<ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" SpawnWithId="65mm" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+			<Containable items="65mm" />
+			<StatusEffect type="OnUse" target="This" condition="-5" disabledeltatime="true">
+				<SpawnItem identifiers="65mm" spawnposition="ThisInventory" />
+			</StatusEffect>
+		</ItemContainer>
+		<Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+	</Item>
+	<Item name="6.5mm Round" identifier="65mm" category="Equipment" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="smallitem" impactsoundtag="impact_metal_light" hideinmenus="true" scale="0.5">
+		<InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="896,960,64,64" origin="0.5,0.5" />
+		<Sprite texture="Content/Items/Weapons/weapons_new.png" sourcerect="195,282,17,6" depth="0.55" origin="0.5,0.5" />
+		<Body width="40" height="14" density="40" />
+		<Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+		<Projectile characterusable="false" hitscan="true" removeonhit="true">
+			<ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="255,200,200,175" scalemultiplier="1,0.8" />
+			<Attack structuredamage="5" targetforce="10" itemdamage="20" severlimbsprobability="0.05">
+				<Affliction identifier="bleeding" strength="15" />
+				<Affliction identifier="gunshotwound" strength="40" />
+				<Affliction identifier="stun" strength="0.30" />
+			</Attack>
+			<StatusEffect type="OnImpact" target="UseTarget">
+				<ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="2,2" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="UseTarget">
+				<Conditional entitytype="eq Structure" />
+				<Conditional hastag="eq door" />
+				<ParticleEmitter particle="spark" copyentityangle="true" anglemin="-10" anglemax="10" particleamount="5" velocitymin="-10" velocitymax="-200" scalemin="0.5" scalemax="1" />
+			</StatusEffect>
+		</Projectile>
+	</Item>
+
+	<!--▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬-->
+	
+	<!--S7 Sniper-->
+	<Item name="S7 Sniper" identifier="s7" category="Equipment" description="A high-powered anti-material sniper rifle" cargocontaineridentifier="metalcrate" tags="weapon,gun,gunsmith" Scale="0.5" impactsoundtag="impact_metal_light">
+		<PreferredContainer primary="secarmcab" />
+		<Price baseprice="1000" soldeverywhere="false">
+			<Price locationtype="outpost" multiplier="1.5" sold="false" />
+			<Price locationtype="city" multiplier="1.25" sold="false" />
+			<Price locationtype="research" multiplier="1.25" sold="false" />
+			<Price locationtype="military" multiplier="0.9" sold="false" />
+			<Price locationtype="mine" multiplier="1.25" sold="false" />
+		</Price>
+		<Fabricate suitablefabricators="fabricator" requiredtime="55">
+			<RequiredSkill identifier="weapons" level="80" />
+			<RequiredItem identifier="ballisticfiber" />
+			<RequiredItem identifier="dementonite" />
+			<RequiredItem identifier="dementonite" />
+			<RequiredItem identifier="titaniumaluminiumalloy" />
+			<RequiredItem identifier="titaniumaluminiumalloy" />
+		</Fabricate>
+		<Deconstruct time="35">
+			<Item identifier="ballisticfiber" />
+			<Item identifier="dementonite" />
+			<Item identifier="dementonite" />
+			<Item identifier="titaniumaluminiumalloy" />
+			<Item identifier="titaniumaluminiumalloy" />
+		</Deconstruct>
+		<InventoryIcon texture="Mods/Halo_Weapons/Human/S7.png" sourcerect="0,0,293,64" origin="0.5,0.5" />
+		<Sprite texture="Mods/Halo_Weapons/Human/S7.png" sourcerect="0,0,293,64" depth="0.55" origin="0.5,0.5" />
+		<Body width="290" height="63" density="70" />
+		<Holdable slots="RightHand+LeftHand" controlpose="true" holdpos="75,-15" aimpos="80,5" handle1="-97,-22" handle2="60,7" holdangle="-30" />
+		<Wearable slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select">
+			<sprite name="S7 Sniper Worn" texture="Mods/Halo_Weapons/Human/S7.png" canbehiddenbyotherwearables="false" rotation="90" inheritlimbdepth="false" depth="0.6" sourcerect="0,0,293,64" limb="Torso" scale="0.5" origin="0.5,1.0" />
+		</Wearable>
+		<RangedWeapon reload="1.0" barrelpos="145,10" spread="0" unskilledspread="20" combatPriority="90" drawhudwhenequipped="true" crosshairscale="0.2">
+			<Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
+			<CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
+			<ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="2.0,2.0"/>
+			<Sound file="Content/Items/Weapons/Revolver1.ogg" type="OnUse" range="3000" selectionmode="Random" />
+			<Sound file="Content/Items/Weapons/Revolver2.ogg" type="OnUse" range="3000" />
+			<Sound file="Content/Items/Weapons/Revolver3.ogg" type="OnUse" range="3000" />
+			<StatusEffect type="OnUse">
+				<Explosion range="150.0" force="2.0" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" camerashake="15.0" />
+			</StatusEffect>
+			<StatusEffect type="OnUse" target="Contained">
+				<Use />
+			</StatusEffect>
+			<RequiredItems items="s7ammo" type="Contained" msg="ItemMsgAmmoRequired" />
+			<RequiredSkill identifier="weapons" level="70" />
+		</RangedWeapon>
+		<ItemContainer capacity="1" maxstacksize="1" hideitems="false" itempos="-57,-15" spawnwithid="s7magazine" containedspritedepth="0.56" containedstateindicatorstyle="bullet">
+			<Containable items="s7ammo" />
+		</ItemContainer>
+		<aitarget sightrange="2000" soundrange="4000" fadeouttime="5" />
+		<Quality>
+			<QualityStat stattype="AttackMultiplier" value="0.1" />
+		</Quality>
+	</Item>
+	<Item name="S7 Magazine" identifier="s7magazine" description="14.5×114mm Armor-Piercing Fin-Stabilized Discarding Sabot" scale="0.5" category="Equipment" cargocontaineridentifier="metalcrate" linkable="true" tags="smallitem,s7ammo" impactsoundtag="impact_metal_light">
+		<PreferredContainer primary="s7" />
+		<PreferredContainer primary="secarmcab" />
+
+		<Price baseprice="450" minleveldifficulty="60" soldeverywhere="false">
+			<Price locationtype="outpost" multiplier="1.4" sold="false" />
+			<Price locationtype="city" multiplier="1.25" sold="false" />
+			<Price locationtype="research" multiplier="1.25" sold="false" />
+			<Price locationtype="military" multiplier="0.9" sold="false" />
+			<Price locationtype="mine" multiplier="1.25" sold="false" />
+		</Price>
+		<Fabricate suitablefabricators="fabricator" requiredtime="40">
+			<RequiredSkill identifier="weapons" level="50" />
+			<RequiredItem identifier="magnesium" />
+			<RequiredItem identifier="titanium" />
+			<RequiredItem identifier="physicorium" />
+			<RequiredItem identifier="steel" />
+		</Fabricate>
+		<Fabricate suitablefabricators="fabricator" displayname="recycleitem" requiredtime="30">
+			<RequiredSkill identifier="weapons" level="50" />
+			<RequiredItem identifier="magnesium" />
+			<RequiredItem identifier="titanium" />
+			<RequiredItem identifier="physicorium" />
+			<RequiredItem identifier="s7magazine" mincondition="0.0" maxcondition="0.0" usecondition="false"/>
+		</Fabricate>
+		<Deconstruct time="15">
+			<Item identifier="titanium" copycondition="true" mincondition="0.05" />
+			<Item identifier="physicorium" copycondition="true" mincondition="0.05" />
+			<Item identifier="steel" />
+		</Deconstruct>
+		<InventoryIcon texture="Mods/Halo_Weapons/Human/S7.png" sourcerect="294,0,32,38" origin="0.5,0.5" />
+		<Sprite texture="Mods/Halo_Weapons/Human/S7.png" sourcerect="294,0,32,38" depth="0.55" origin="0.5,0.5" />
+		<Body width="43" height="54" density="50" />
+		<ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" SpawnWithId="145×114mm" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+			<Containable items="145×114mm" />
+			<StatusEffect type="OnUse" target="This" condition="-25" disabledeltatime="true">
+				<SpawnItem identifiers="145×114mm" spawnposition="ThisInventory" />
+			</StatusEffect>
+		</ItemContainer>
+		<Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
+	</Item>
+	<Item name="14.5×114mm APFSDS Round" identifier="145×114mm" category="Equipment" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="smallitem" impactsoundtag="impact_metal_light" hideinmenus="true" scale="0.5">
+		<InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="896,960,64,64" origin="0.5,0.5" />
+		<Sprite texture="Content/Items/Weapons/weapons_new.png" sourcerect="195,282,17,6" depth="0.55" origin="0.5,0.5" />
+		<Body width="40" height="14" density="40" />
+		<Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+		<Projectile characterusable="false" maxtargetstohit="2" hitscan="true" removeonhit="true">
+			<ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="255,200,200,175" scalemultiplier="1,0.8" />
+			<Attack structuredamage="15" targetforce="10" itemdamage="30" penetration="0.8" severlimbsprobability="0.25">
+				<Affliction identifier="bleeding" strength="40" />
+				<Affliction identifier="gunshotwound" strength="90" />
+				<Affliction identifier="stun" strength="1" />
+			</Attack>
+			<StatusEffect type="OnImpact" target="UseTarget">
+				<ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="2,2" />
+			</StatusEffect>
+			<StatusEffect type="OnImpact" target="UseTarget">
+				<Conditional entitytype="eq Structure" />
+				<Conditional hastag="eq door" />
+				<ParticleEmitter particle="spark" copyentityangle="true" anglemin="-10" anglemax="10" particleamount="5" velocitymin="-10" velocitymax="-200" scalemin="0.5" scalemax="1" />
+			</StatusEffect>
+		</Projectile>
+	</Item>
+	
+	<!--▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬-->
+	
+	<!--M41 SPNKR-->
+	<Item name="M41 SPNKR" identifier="m41" category="Equipment" description="UNSC anti-vehicle infantry rocket launcher" cargocontaineridentifier="metalcrate" tags="weapon,gun,gunsmith" Scale="0.5" impactsoundtag="impact_metal_light">
+		<PreferredContainer primary="secarmcab" />
+		<Price baseprice="1000" soldeverywhere="false">
+			<Price locationtype="outpost" multiplier="1.5" sold="false" />
+			<Price locationtype="city" multiplier="1.25" sold="false" />
+			<Price locationtype="research" multiplier="1.25" sold="false" />
+			<Price locationtype="military" multiplier="0.9" sold="false" />
+			<Price locationtype="mine" multiplier="1.25" sold="false" />
+		</Price>
+		<Fabricate suitablefabricators="fabricator" requiredtime="55">
+			<RequiredSkill identifier="weapons" level="80" />
+			<RequiredItem identifier="ballisticfiber" />
+			<RequiredItem identifier="dementonite" />
+			<RequiredItem identifier="titaniumaluminiumalloy" />
+			<RequiredItem identifier="titaniumaluminiumalloy" />
+		</Fabricate>
+		<Deconstruct time="35">
+			<Item identifier="ballisticfiber" />
+			<Item identifier="dementonite" />
+			<Item identifier="titaniumaluminiumalloy" />
+			<Item identifier="titaniumaluminiumalloy" />
+		</Deconstruct>
+		<InventoryIcon texture="Mods/Halo_Weapons/Human/M41.png" sourcerect="0,0,293,96" origin="0.5,0.5" />
+		<Sprite texture="Mods/Halo_Weapons/Human/M41.png" sourcerect="0,0,293,96" depth="0.55" origin="0.5,0.5" />
+		<Body width="290" height="96" density="70" />
+		<Holdable slots="RightHand+LeftHand" controlpose="true" holdpos="50,0" aimpos="20,10" handle1="17,-27" handle2="74,-2" holdangle="-30" />
+		<Wearable slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select">
+			<sprite name="MLRS-2 Hydra Worn" texture="Mods/Halo_Weapons/Human/M41.png" canbehiddenbyotherwearables="false" rotation="90" inheritlimbdepth="false" depth="0.6" sourcerect="0,0,293,96" limb="Torso" scale="0.5" origin="0.5,1.0" />
+		</Wearable>
+		<RangedWeapon reload="1.0" barrelpos="145,15" spread="4" unskilledspread="8" combatPriority="90" drawhudwhenequipped="true" crosshairscale="0.2">
+			<Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
+			<CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
+			<ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="3,3" />
+			<Sound file="Mods/Halo_Weapons/Human/Hydra_1.ogg" type="OnUse" range="3000" selectionmode="Random" />
+			<Sound file="Mods/Halo_Weapons/Human/Hydra_2.ogg" type="OnUse" range="3000" />
+			<Sound file="Mods/Halo_Weapons/Human/Hydra_3.ogg" type="OnUse" range="3000" />
+			<StatusEffect type="OnUse">
+				<Explosion range="150.0" force="1" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" camerashake="12.0" />
+			</StatusEffect>
+			<RequiredItems items="m41ammo" type="Contained" msg="ItemMsgAmmoRequired" />
+			<RequiredSkill identifier="weapons" level="60" />
+		</RangedWeapon>
+		<ItemContainer capacity="1" maxstacksize="2" hideitems="true" spawnwithid="m19,m19" containedstateindicatorstyle="bullet">
+			<Containable items="m41ammo" />
+		</ItemContainer>
+		<aitarget sightrange="2000" soundrange="4000" fadeouttime="5" />
+		<Quality>
+			<QualityStat stattype="AttackMultiplier" value="0.1" />
+		</Quality>
+	</Item>
+	<Item name="M19 102mm HESCSSM" identifier="m19" description="M19 102mm high-explosive, shaped-charge surface-to-surface missile" category="Equipment" maxstacksize="8" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="smallitem,m41ammo" Scale="0.5" impactsoundtag="impact_metal_light">
+		<PreferredContainer primary="m41" />
+		<PreferredContainer primary="secarmcab" />
+
+		<Price baseprice="100" soldeverywhere="false">
+			<Price locationtype="outpost" multiplier="1.5" sold="false"/>
+			<Price locationtype="city" multiplier="1.25" sold="false"/>
+			<Price locationtype="research" multiplier="1.25" sold="false"/>
+			<Price locationtype="military" multiplier="0.9" sold="false" />
+			<Price locationtype="mine" multiplier="1.25" sold="false"/>
+		</Price>
+		<Deconstruct time="20">
+			<Item identifier="compoundn" condition="0.5"/>
+			<Item identifier="steel" condition="0.5"/>
+		</Deconstruct>
+		<Fabricate suitablefabricators="fabricator" requiredtime="30" >
+			<RequiredSkill identifier="weapons" level="40"/>
+			<RequiredItem identifier="compoundn"/>
+			<RequiredItem identifier="steel"/>
+		</Fabricate>
+		<InventoryIcon texture="Mods/Halo_Weapons/Human/M41.png" sourcerect="294,0,66,15" origin="0.5,0.5" />
+		<Sprite texture="Mods/Halo_Weapons/Human/M41.png" sourcerect="294,0,66,15" depth="0.55" origin="0.5,0.5" />
+		<Body width="66" height="15" density="20" />
+		<Pickable slots="Any" msg="ItemMsgPickUpSelect"/>
+		<Projectile characterusable="false" launchimpulse="40.0" sticktocharacters="false" RemoveOnHit="true" LaunchRotation="0.0">
+			<Attack structuredamage="1">
+				<Affliction identifier="blunttrauma" strength="5" />
+				<Affliction identifier="stun" strength="0.2" />
+			</Attack>
+			<StatusEffect type="OnActive" target="This">
+				<ParticleEmitter position="-19,0" particle="rockettrail" anglemin="0" anglemax="0" particleamount="2" velocitymin="0" velocitymax="0" scalemin="0.9" scalemax="1.1" copyentityangle="true"/>
+				<ParticleEmitter position="-19,0" particle="DarkSmoke" anglemin="0" anglemax="0" particleamount="2" velocitymin="0" velocitymax="0" scalemin="1" scalemax="1" copyentityangle="true"/>
+			</StatusEffect>
+			<sound file="Content/Items/Weapons/FragGrenade40mmShot1.ogg" type="OnImpact" range="500" selectionmode="Random" />
+			<sound file="Content/Items/Weapons/FragGrenade40mmShot2.ogg" type="OnImpact" range="500" />
+			<StatusEffect type="OnImpact" disabledeltatime="true">
+				<Explosion range="500.0" structuredamage="20" ballastfloradamage="120" itemdamage="500" force="10" severlimbsprobability="0.5" decal="explosion" decalsize="0.5">
+					<Affliction identifier="bleeding" strength="80" />
+					<Affliction identifier="explosiondamage" strength="200" />
+					<Affliction identifier="stun" strength="5"/>
+				</Explosion>
+				<sound file="Content/Items/Weapons/StunGrenade.ogg" />
+			</StatusEffect>
+		</Projectile>
+	</Item>
+
+	<!--▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬-->
+	
+	<!-- MLRS-2 Hydra -->
+	<Item name="MLRS-2 Hydra" identifier="hydra" category="Equipment" description="Multiple Launch Rocket System-2 Hydra" cargocontaineridentifier="metalcrate" tags="weapon,gun,gunsmith" Scale="0.5" impactsoundtag="impact_metal_light">
+		<PreferredContainer primary="secarmcab" />
+		<Price baseprice="1000" soldeverywhere="false">
+			<Price locationtype="outpost" multiplier="1.5" sold="false" />
+			<Price locationtype="city" multiplier="1.25" sold="false" />
+			<Price locationtype="research" multiplier="1.25" sold="false" />
+			<Price locationtype="military" multiplier="0.9" sold="false" />
+			<Price locationtype="mine" multiplier="1.25" sold="false" />
+		</Price>
+		<Fabricate suitablefabricators="fabricator" requiredtime="55">
+			<RequiredSkill identifier="weapons" level="80" />
+			<RequiredItem identifier="ballisticfiber" />
+			<RequiredItem identifier="ballisticfiber" />
+			<RequiredItem identifier="dementonite" />
+			<RequiredItem identifier="titaniumaluminiumalloy" />
+		</Fabricate>
+		<Deconstruct time="35">
+			<Item identifier="ballisticfiber" />
+			<Item identifier="ballisticfiber" />
+			<Item identifier="dementonite" />
+			<Item identifier="titaniumaluminiumalloy" />
+		</Deconstruct>
+		<InventoryIcon texture="Mods/Halo_Weapons/Human/Hydra.png" sourcerect="0,0,192,73" origin="0.5,0.5" />
+		<Sprite texture="Mods/Halo_Weapons/Human/Hydra.png" sourcerect="0,0,192,73" depth="0.55" origin="0.5,0.5" />
+		<Body width="192" height="73" density="70" />
+		<Holdable slots="RightHand+LeftHand" controlpose="true" holdpos="50,0" aimpos="55,-5" handle1="-41,-25" handle2="60,0" holdangle="-30" />
+		<Wearable slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select">
+			<sprite name="MLRS-2 Hydra Worn" texture="Mods/Halo_Weapons/Human/Hydra.png" canbehiddenbyotherwearables="false" rotation="90" inheritlimbdepth="false" depth="0.6" sourcerect="0,0,192,73" limb="Torso" scale="0.5" origin="0.5,1.0" />
+		</Wearable>
+		<RangedWeapon reload="0.633" barrelpos="96,18" spread="4" unskilledspread="8" combatPriority="90" drawhudwhenequipped="true" crosshairscale="0.2">
+			<Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
+			<CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
+			<ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="2,2" />
+			<Sound file="Mods/Halo_Weapons/Human/Hydra_1.ogg" type="OnUse" range="3000" selectionmode="Random" />
+			<Sound file="Mods/Halo_Weapons/Human/Hydra_2.ogg" type="OnUse" range="3000" />
+			<Sound file="Mods/Halo_Weapons/Human/Hydra_3.ogg" type="OnUse" range="3000" />
+			<StatusEffect type="OnUse">
+				<Explosion range="150.0" force="1" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" camerashake="12.0" />
+			</StatusEffect>
+			<RequiredItems items="hydraammo" type="Contained" msg="ItemMsgAmmoRequired" />
+			<RequiredSkill identifier="weapons" level="60" />
+		</RangedWeapon>
+		<ItemContainer capacity="1" maxstacksize="6" hideitems="true" spawnwithid="hydrarocket,hydrarocket,hydrarocket,hydrarocket,hydrarocket,hydrarocket" containedstateindicatorstyle="bullet">
+			<Containable items="hydraammo" />
+		</ItemContainer>
+		<aitarget sightrange="2000" soundrange="4000" fadeouttime="5" />
+		<Quality>
+			<QualityStat stattype="AttackMultiplier" value="0.1" />
+		</Quality>
+	</Item>
+	<Item name="HEAB Gyroc Micro-Missile" identifier="hydrarocket" category="Equipment" maxstacksize="8" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="smallitem,hydraammo" Scale="0.5" impactsoundtag="impact_metal_light">
+		<PreferredContainer primary="hydra" />
+		<PreferredContainer primary="secarmcab" />
+		
+		<Price baseprice="100" soldeverywhere="false">
+			<Price locationtype="outpost" multiplier="1.5" sold="false"/>
+			<Price locationtype="city" multiplier="1.25" sold="false"/>
+			<Price locationtype="research" multiplier="1.25" sold="false"/>
+			<Price locationtype="military" multiplier="0.9" sold="false" />
+			<Price locationtype="mine" multiplier="1.25" sold="false"/>
+		</Price>
+		<Deconstruct time="15">
+			<Item identifier="c4block" condition="0.5"/>
+			<Item identifier="steel" condition="0.5"/>
+		</Deconstruct>
+		<Fabricate suitablefabricators="fabricator" requiredtime="30" amount="2">
+			<RequiredSkill identifier="weapons" level="30"/>
+			<RequiredItem identifier="c4block"/>
+			<RequiredItem identifier="steel"/>
+		</Fabricate>
+		<InventoryIcon texture="Mods/Halo_Weapons/Human/Hydra.png" sourcerect="195,8,64,64" origin="0.5,0.5" />
+		<Sprite texture="Mods/Halo_Weapons/Human/Hydra.png" sourcerect="195,0,37,6" depth="0.55" origin="0.5,0.5" />
+		<Body width="38" height="6" density="20" />
+		<Pickable slots="Any" msg="ItemMsgPickUpSelect"/>
+		<Projectile characterusable="false" launchimpulse="30.0" sticktocharacters="false" RemoveOnHit="true" LaunchRotation="0.0">
+			<Attack structuredamage="1">
+				<Affliction identifier="blunttrauma" strength="5" />
+				<Affliction identifier="stun" strength="0.2" />
+			</Attack>
+			<StatusEffect type="OnActive" target="This">
+				<ParticleEmitter position="-19,0" particle="rockettrail" anglemin="0" anglemax="0" particleamount="2" velocitymin="0" velocitymax="0" scalemin="0.9" scalemax="1.1" copyentityangle="true"/>
+				<ParticleEmitter position="-19,0" particle="MistSmoke" anglemin="0" anglemax="0" particleamount="1" velocitymin="0" velocitymax="0" scalemin="1" scalemax="1" copyentityangle="true"/>
+			</StatusEffect>
+			<sound file="Content/Items/Weapons/FragGrenade40mmShot1.ogg" type="OnImpact" range="500" selectionmode="Random" />
+			<sound file="Content/Items/Weapons/FragGrenade40mmShot2.ogg" type="OnImpact" range="500" />
+			<StatusEffect type="OnImpact" disabledeltatime="true">
+				<Explosion range="100.0" ballastfloradamage="55" structuredamage="8" levelwalldamage="350" itemdamage="350" force="10.0" severlimbsprobability="0.3" decal="explosion" decalsize="0.3">
+					<Affliction identifier="bleeding" strength="20" />
+					<Affliction identifier="explosiondamage" strength="50" />
+					<Affliction identifier="lacerations" strength="20" />
+					<Affliction identifier="stun" strength="3" />
+				</Explosion>
+				<sound file="Content/Items/Weapons/StunGrenade.ogg" />
+			</StatusEffect>
+		</Projectile>
+	</Item>
+</Items>

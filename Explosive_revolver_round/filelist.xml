@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentpackage name="Explosive_revolver_round" path="Mods/Explosive_revolver_round/filelist.xml" corepackage="false" gameversion="0.15.13.0" steamworkshopid="2671277807" installtime="1638481868">
+  <Item file="Mods/Explosive_revolver_round/Explosive_revolver_round/explosive_revolver_round.xml" />
+  <None file="Mods/Explosive_revolver_round/Explosive_revolver_round/explosive_revolver_round.png" />
+  <None file="Mods/Explosive_revolver_round/Explosive_revolver_round/explosive_revolver_round_icon.png" />
+</contentpackage>

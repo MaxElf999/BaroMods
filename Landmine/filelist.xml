@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentpackage name="Landmine" path="Mods/LandMine/filelist.xml" corepackage="false" gameversion="0.15.13.0">
+	<Item file="Mods/Landmine/Landmine/Landmine.xml" />
+	<None file="Mods/Landmine/Landmine/Landmine.png" />
+	<None file="Mods/Landmine/Landmine/Landmine_icon.png" />
+</contentpackage>

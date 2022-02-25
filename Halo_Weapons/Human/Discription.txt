@@ -1,0 +1,109 @@
+MA40 Assault Rifle
+A standard issue UNSC assault rifle with mounted flashlight
+Ammunition: 7.62x51mm
+	FMJ-AP: gunshot wound: 30, bleeding: 8, stun: 0.25, penetration: 40%
+	Shredder: gunshot wound: 10, lacerations: 20, bleeding: 30, stun: 0.4
+Magazine: 36-round detachable box magazine
+Rate of fire: 0.09375 SPR
+Required skill: 60
+Unskilled spread: 12
+Skilled spread: 4
+Fabricator requirements: titanium-aluminum alloy, dementonite bar, ballistic fiber, FPGA circuit
+Magazine fabricator requirements: 
+	FMJ-AP: magnesium, copper, steel bar x2
+	Shredder: magnesium, lead, steel bar x2
+
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+MK50 Sidekick
+Small caliber UNSC sidearm pistol
+Ammunition: 10mm: gunshot wound: 15, bleeding: 15, stun: 0.15
+Magazine: 12-round detachable box magazine
+Rate of fire: semi-automatic (0.4 SPR in-game)
+Required skill: 30
+Unskilled spread: 4 
+Skilled spread: 0
+Fabricator requirements: steel bar, plastic
+Magazine fabricator requirements: magnesium, lead, plastic
+
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+BR75 Battle Rifle
+A 3-round burst-fire UNSC battle rifle
+Ammunition: 9.5×40mm HP-SAP: gunshot wound: 35, bleeding: 15, stun: 0.25 penetration: 20%
+Magazine: 36-round detachable box magazine
+Rate of fire: 3-round burst (0.5 seconds between bursts in-game)
+Required skill:
+Unskilled spread:
+Skilled spread:
+Fabricator requirements: titanium-aluminum alloy, dementonite bar, ballistic fiber
+Magazine fabricator requirements: magnesium, lead, steel bar x2
+
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+CQS48 Bulldog
+12-gauge pump-action UNSC shotgun
+Ammunition: 12-gauge shells
+Magazine: 7-round rotary magazine
+Rate of fire: pump-action (0.55 seconds between shots in-game)
+Required skill:
+Unskilled spread:
+Skilled spread:
+Fabricator requirements: titanium-aluminum alloy, dementonite bar, ballistic fiber
+Magazine fabricator requirements: magnesium, lead, steel bar, plastic
+
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+VK78 Commando
+A more traditional-style UNSC assault rifle
+Ammunition: 6.5mm: gunshot wound: 40, bleeding: 15, stun: 0.30
+Magazine: 20-round detachable box magazine
+Rate of fire: 415 RPM or about 0.1445 SPR
+Required skill:
+Unskilled spread:
+Skilled spread:
+Fabricator requirements: titanium-aluminum alloy x2, ballistic fiber
+Magazine fabricator requirements: magnesium, lead, copper, steel bar
+
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+S7 Sniper
+A high-powered anti-material sniper rifle
+Ammunition: 14.5×114mm APFSDS
+Magazine: 4-round detachable box magazine
+Rate of fire: semi-automatic (1 SPR in-game)
+Required skill:
+Unskilled spread:
+Skilled spread:
+Fabricator requirements: titanium-aluminum alloy x2, dementonite bar x2, ballistic fiber
+Magazine fabricator requirements: magnesium, titanium, physicorium bar, steel bar
+
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+M41 SPNKR
+UNSC anti-vehicle infantry rocket launcher
+Ammunition: M19 102mm HESCSSM
+Magazine: Dual tube magazine
+Rate of fire: 1.0 SPR
+Required skill:
+Unskilled spread:
+Skilled spread:
+Fabricator requirements: titanium-aluminum alloy x2, dementonite bar, ballistic fiber
+Rocket fabricator requirements: steel bar, compound N
+
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+MLRS-2 Hydra
+Multiple Launch Rocket System-2 Hydra
+Ammunition: HEAB Gyroc rockets: blunt trauma: 5, stun: 0.2 explosion: explosion damage: 50, lacerations: 20, bleeding: 20, stun: 3
+Magazine: 6-rocket revolving cylinder
+Rate of fire: 0.633 SPR
+Required skill:
+Unskilled spread:
+Skilled spread:
+Fabricator requirements: titanium-aluminum alloy, dementonite bar, ballistic fiber x2
+Rocket fabricator requirements (makes 2): steel bar, C-4 block
+
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+SPR stands for seconds per round/rocket and is the time in between shots (I chose this format instead of rounds per miniute as this is how the game handles firing rates)
